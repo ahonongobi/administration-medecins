@@ -264,7 +264,7 @@
                     <li class="dropdown dropdown-user">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
-                            <img alt="" class="img-circle " src="img/dp.jpg" />
+                            <img alt="" class="img-circle " src="{{asset('img/dp.jpg')}}" />
                             <span class="username username-hide-on-mobile"> Kiran
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
@@ -401,7 +401,7 @@
                         <li class="sidebar-user-panel">
                             <div class="sidebar-user">
                                 <div class="sidebar-user-picture">
-                                    <img alt="image" src="img/dp.jpg">
+                                    <img alt="image" src="{{asset('img/dp.jpg')}}">
                                 </div>
                                 <div class="sidebar-user-details">
                                     <div class="user-name">{{Auth::user()->name ?? "admin"}}</div>

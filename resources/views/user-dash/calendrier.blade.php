@@ -5,23 +5,16 @@
         <div class="col-md-3 col-sm-12">
             <div class="card-box">
                 <div class="card-head">
-                    <header>Draggable Event</header>
+                    <header>Programes</header>
                 </div>
                 <div class="card-body">
                     <div id='external-events'>
-                        <div class="fc-event fc-event-success" data-class="fc-event-success">Work</div>
-                        <div class="fc-event fc-event-warning" data-class="fc-event-warning">Personal
-                        </div>
-                        <div class="fc-event fc-event-primary" data-class="fc-event-primary">Important
-                        </div>
-                        <div class="fc-event fc-event-danger" data-class="fc-event-danger">Travel</div>
-                        <div class="fc-event fc-event-info" data-class="fc-event-info">Friends</div>
-                        <br>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id='drop-remove'>
-                            <label class="custom-control-label" for="drop-remove">Remove after
-                                drop</label>
-                        </div>
+                        @foreach($all_calendar as $item)
+                            <div class='btn btn-primary mb-3'>{{$item->title}}</div>
+                        @endforeach
+
+
+
                     </div>
                 </div>
             </div>
@@ -30,7 +23,7 @@
         <div class="col-md-9 col-sm-12">
             <div class="card">
                 <div class="card-head">
-                    <header>Calendar</header>
+                    <header>Calendrier</header>
                 </div>
                 <div class="card-body">
                     <div class="panel-body">

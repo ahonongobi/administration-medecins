@@ -165,11 +165,11 @@ class MembresController extends Controller
             $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
             $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
 
-            $data = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->get(['id','title','start', 'end']);
+            $data = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->where('user_id',Auth::user()->id)->get(['id','title','start', 'end']);
             return Response::json($data);
         }
 
-
-        return view('user-dash.calendrier');
+         $all_calendar = Event::where('user_id',Auth::user()->id)->get();
+        return view('user-dash.calendrier',compact('all_calendar'));
     }
 }

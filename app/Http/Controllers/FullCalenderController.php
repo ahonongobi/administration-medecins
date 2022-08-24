@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Redirect,Response;
 
 class FullCalenderController extends Controller
@@ -11,6 +12,7 @@ class FullCalenderController extends Controller
     public function create(Request $request)
     {
         $insertArr = [ 'title' => $request->title,
+            'user_id' => Auth::user()->id,
             'start' => $request->start,
             'end' => $request->end
         ];

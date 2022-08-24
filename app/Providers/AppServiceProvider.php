@@ -32,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
             if(Auth::check()){
                 $view->with('path', config('app.url'));
                 $view->with('users', Utilisateur::all());
+                //count all members
+                $view->with('count_members_for_admin', Membres::count());
                 //count all user members
                 $chount_if_user_exist = Membres::where('user_id', Auth::user()->id)->count();
                 if ($chount_if_user_exist > 0) {

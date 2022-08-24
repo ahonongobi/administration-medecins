@@ -389,7 +389,7 @@
                         <li class="sidebar-user-panel">
                             <div class="sidebar-user">
                                 <div class="sidebar-user-picture">
-                                    <img alt="image" src="img/dp.jpg">
+                                    <img alt="image" src="{{asset('img/dp.jpg')}}">
                                 </div>
                                 <div class="sidebar-user-details">
                                     <div class="user-name">Dr. Kiran Patel</div>
@@ -472,10 +472,10 @@
                                 <div class="info-box-content">
                                     <span class="info-box-text">Membres</span>
                                     <span class="info-box-number">
-                                        @if($members < 10)
-                                            0{{$members}}
+                                        @if($count_members_for_admin < 10)
+                                            0{{$count_members_for_admin}}
                                         @else
-                                            {{$members}}
+                                            {{$count_members_for_admin}}
                                         @endif
                                     </span>
 
