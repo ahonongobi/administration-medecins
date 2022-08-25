@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiiche technique de {{$membre->nom ??'...'}}</title>
+    <title>Fiche technique de {{$membre->nom ??'...'}}</title>
     <style type="text/css" media="print">
         @page{
             size: auto;

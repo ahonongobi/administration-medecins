@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //make views path available to all views
         view()->composer('*', function ($view) {
+            $view->with('users', Utilisateur::all());
             if(Auth::check()){
                 $view->with('path', config('app.url'));
                 $view->with('users', Utilisateur::all());

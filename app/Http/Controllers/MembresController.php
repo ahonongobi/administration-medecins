@@ -157,6 +157,13 @@ class MembresController extends Controller
         return view('user-dash.pdf',compact('membre'));
     }
 
+    //pdf controller stat here
+    public function pdfviewsame($id){
+        //get memebre where id = $id
+        $membre = \App\Models\Membres::find($id);
+        return view('user-dash.pdf-2',compact('membre'));
+    }
+
     //calendrier controller stat here
     public function calendrier(){
         if(request()->ajax())
@@ -171,5 +178,11 @@ class MembresController extends Controller
 
          $all_calendar = Event::where('user_id',Auth::user()->id)->get();
         return view('user-dash.calendrier',compact('all_calendar'));
+    }
+
+    //voiruser
+    public function voiruser($id){
+        $membre = \App\Models\Membres::find($id);
+        return view('user-dash.voir',compact('membre'));
     }
 }

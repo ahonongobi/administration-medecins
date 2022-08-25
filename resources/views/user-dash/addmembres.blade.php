@@ -59,7 +59,7 @@
                                 <div class="col-md-4">
                                     <div class="input-group">
 
-                                        <input type="text" value="{{old('birthdate')}}" class="form-control" name="birthdate"
+                                        <input type="date" value="{{old('birthdate')}}" class="form-control" name="birthdate"
                                                placeholder="" />
                                         @if($errors->has('birthdate'))
                                             <span class="text-danger">{{$errors->first('birthdate')}}</span>
@@ -147,7 +147,12 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Carte assurance : oui - non:<span class="required"> * </span></label>
                                 <div class="col-md-4">
-                                    <input name="carte"  value="{{old('carte')}}" type="text" class="form-control" />
+                                    <select name="carte" value="{{old('carte')}}" class="form-control">
+                                        <option value="">Selectionnez...</option>
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+
                                     @if($errors->has('carte'))
                                         <span class="text-danger">{{$errors->first('carte')}}</span>
                                     @endif
@@ -184,7 +189,12 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Valable : oui - non<span class="required"> * </span></label>
                                 <div class="col-md-4">
-                                    <input name="valable"  value="{{old('valable')}}" type="text" class="form-control" />
+                                    <select name="valable" value="{{old('valable')}}" class="form-control">
+                                        <option value="">Selectionnez...</option>
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+
                                     @if($errors->has('valable'))
                                         <span class="text-danger">{{$errors->first('valable')}}</span>
                                     @endif
@@ -193,7 +203,12 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Arret : oui - non:<span class="required"> * </span></label>
                                 <div class="col-md-4">
-                                    <input name="arret"  value="{{old('arret')}}" type="text" class="form-control" />
+                                    <select name="arret" value="{{old('arret')}}" class="form-control">
+                                        <option value="">Selectionnez...</option>
+                                        <option value="Oui">Oui</option>
+                                        <option value="Non">Non</option>
+                                    </select>
+
                                     @if($errors->has('arret'))
                                         <span class="text-danger">{{$errors->first('arret')}}</span>
                                     @endif
@@ -230,7 +245,7 @@
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Mise a jour le :<span class="required"> * </span></label>
                                 <div class="col-md-4">
-                                    <input name="date_update"  value="{{old('date_update')}}" type="text" class="form-control" />
+                                    <input name="date_update"  value="{{old('date_update')}}" type="date" class="form-control" />
                                     @if($errors->has('date_update'))
                                         <span class="text-danger">{{$errors->first('date_update')}}</span>
                                     @endif

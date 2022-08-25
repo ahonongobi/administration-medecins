@@ -61,6 +61,10 @@
                                 <td> {{$item->tel}} </td>
                                 <td> {{$item->departement}} </td>
                                 <td class="valigntop">
+
+                                    <a href="{{url('voir/'.$item->id)}}" class="tblEditBtn">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
                                     <a href="{{url('editmembres/'.$item->id)}}" class="tblEditBtn">
                                         <i class="fa fa-pencil"></i>
                                     </a>

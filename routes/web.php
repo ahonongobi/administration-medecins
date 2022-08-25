@@ -37,7 +37,8 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('/edit/{id}',[\App\Http\Controllers\AdminController::class,"edituser"])->name("edituser");
     //post edit user
     Route::post('/edit/{id}',[\App\Http\Controllers\AdminController::class,"updateuser"])->name("postedituser");
-
+    //voir
+    Route::get('/voir/{id}',[\App\Http\Controllers\MembresController::class,"voiruser"])->name("voiruser");
     //route addmembres
     Route::get('/addmembres',[\App\Http\Controllers\MembresController::class,"addmembres"])->name("addmembres");
     //send rout
@@ -52,6 +53,7 @@ Route::group(['middleware'=>'auth'],function() {
 
     //printpdf
     Route::get('print-pdf/{id}',[\App\Http\Controllers\MembresController::class,"pdfview"]);
+    Route::get('print-pdf-samepage/{id}',[\App\Http\Controllers\MembresController::class,"pdfviewsame"]);
     //calendrier
     Route::get('/calendrier',[\App\Http\Controllers\MembresController::class,"calendrier"])->name("calendrier");
 
