@@ -16,6 +16,10 @@ class AdminController extends Controller
     {
         return view('admin-dash.index');
     }
+    public function indexAfterLogin()
+    {
+        return view('user-dash.choose');
+    }
     public function indexUser()
     {
         return view('user-dash.index');

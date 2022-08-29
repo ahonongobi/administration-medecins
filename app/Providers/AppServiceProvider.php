@@ -51,6 +51,10 @@ class AppServiceProvider extends ServiceProvider
 
                 // get all programmes
                 $view->with('allprogrammes', \App\Models\Programmes::all());
+
+
+
+
             }
 
 

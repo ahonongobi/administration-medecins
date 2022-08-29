@@ -34,8 +34,6 @@
                 page-break-before: always;
             }
 
-
-
         }
         @media only print {
 
@@ -211,6 +209,24 @@
             height:120%;
             transition: height .2s .15s, border-width 0s .16s;
         }
+        .toolbar{
+            background: #333;
+            width: 100vw;
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .btn{
+            padding: 10px 17px;
+            border-radius: 3px;
+            background: #f4b71a;
+            border: none;
+            font-size: 12px;
+            margin: 10px 5px;
+        }
 
     </style>
 </head>
@@ -224,11 +240,16 @@
 </div>
 
 
-
+<div class="toolbar no-print">
+    <button class="btn btn-info" onclick="window.print()">
+        Imprimer la fiche
+    </button>
+    <button class="btn btn-info" id="downloadPDF">Télécharger PDF</button>
+</div>
 <div id="bg-image-fluid" class="table">
 <!-- make table with two columns -->
     <!-- image logo here  -->
-    <div class="logo">
+    <div style="margin-top: 2% !important;" class="logo">
         <div class="text-center">
             <img alt="logo" width="100px" height="100px" src="https://chart.googleapis.com/chart?cht=qr&chl=Id+Membre:{{$membre->membre_id}}&chs=160x160&chld=L|0"
                  class="qr-code img-thumbnail img-responsive">
@@ -381,6 +402,8 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
 <script>
     function loadOtherPage() {
 
@@ -390,6 +413,63 @@
             .appendTo("body");                    // add iframe to the DOM to cause it to load the page
 
     }
+
+</script>
+<script>
+    $("#downloadPDF").click(function () {
+
+        // $("#content2").addClass('ml-215'); // JS solution for smaller screen but better to add media queries to tackle the issue
+        getScreenshotOfElement(
+            $("div#bg-image-fluid").get(0),
+            0,
+            0,
+            $("#bg-image-fluid").width() + 45,  // added 45 because the container's (content2) width is smaller than the image, if it's not added then the content from right side will get cut off
+            $("#bg-image-fluid").height() + 30, // same issue as above. if the container width / height is changed (currently they are fixed) then these values might need to be changed as well.
+            function (data) {
+                var pdf = new jsPDF("l", "pt", [
+                    $("#bg-image-fluid").width(),
+                    $("#bg-image-fluid").height(),
+                ]);
+
+                pdf.addImage(
+                    "data:image/png;base64," + data,
+                    "PNG",
+                    0,
+                    0,
+                    $("#bg-image-fluid").width(),
+                    $("#bg-image-fluid").height()
+                );
+                pdf.save("azimuth-certificte.pdf");
+            }
+        );
+    });
+
+    // this function is the configuration of the html2cavas library (https://html2canvas.hertzen.com/)
+    // $("#content2").removeClass('ml-215'); is the only custom line here, the rest comes from the library.
+    function getScreenshotOfElement(element, posX, posY, width, height, callback) {
+        html2canvas(element, {
+            onrendered: function (canvas) {
+                // $("#content2").removeClass('ml-215');  // uncomment this if resorting to ml-125 to resolve the issue
+                var context = canvas.getContext("2d");
+                var imageData = context.getImageData(posX, posY, width, height).data;
+                var outputCanvas = document.createElement("canvas");
+                var outputContext = outputCanvas.getContext("2d");
+                outputCanvas.width = width;
+                outputCanvas.height = height;
+
+                var idata = outputContext.createImageData(width, height);
+                idata.data.set(imageData);
+                outputContext.putImageData(idata, 0, 0);
+                callback(outputCanvas.toDataURL().replace("data:image/png;base64,", ""));
+            },
+            width: width,
+            height: height,
+            useCORS: true,
+            taintTest: false,
+            allowTaint: false,
+        });
+    }
+
 </script>
 
 </body>

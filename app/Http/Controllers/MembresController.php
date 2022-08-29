@@ -47,6 +47,7 @@ class MembresController extends Controller
         $membre->user_email = Auth::user()->email;
         $membre->membre_id = rand(1000,9999);
         $membre->nom  = $request->input("name");
+        $membre->programmes = $request->input("programmes");
         $membre->email = $request->input("email");
         $membre->sexe = $request->input("sexe");
         $membre->age = $request->input("age");
@@ -111,6 +112,7 @@ class MembresController extends Controller
         $membre->user_id = Auth::user()->id;
         $membre->user_email = Auth::user()->email;
         $membre->membre_id = rand(1000, 9999);
+        $membre->programmes = $request->input("programmes");
         $membre->nom = $request->input("name");
         $membre->email = $request->input("email");
         $membre->sexe = $request->input("sexe");
@@ -184,5 +186,12 @@ class MembresController extends Controller
     public function voiruser($id){
         $membre = \App\Models\Membres::find($id);
         return view('user-dash.voir',compact('membre'));
+    }
+
+    //display
+
+    public  function  display($keys){
+
+
     }
 }

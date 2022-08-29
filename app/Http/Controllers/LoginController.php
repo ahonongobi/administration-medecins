@@ -30,7 +30,7 @@ class LoginController extends Controller
                 "password"=>$request->input("password"),
             ]) AND Auth::user()->is_admin == 0)
         {
-            return redirect(route('user'));
+            return redirect(route('indexAfterLogin'));
         }
         else{
             return back()->withErrors(["fail"=>"Identifiants Incorrects"]);

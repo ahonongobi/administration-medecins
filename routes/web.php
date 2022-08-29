@@ -30,7 +30,10 @@ Route::group(['middleware'=>'auth'],function() {
     Route::post('/adduser',[\App\Http\Controllers\AdminController::class,"adduser"])->name("adduser");
     //user route
     Route::get('/user',[\App\Http\Controllers\AdminController::class,"indexUser"])->name("user");
-
+    //Loginafter route
+    Route::get('/indexAfterLogin',[\App\Http\Controllers\AdminController::class,"indexAfterLogin"])->name("indexAfterLogin");
+    //display choose programme
+    Route::get('chooseprogrames/{keys}',[\App\Http\Controllers\MembresController::display]);
     //delete user
     Route::get('/delete/{id}',[\App\Http\Controllers\AdminController::class,"deleteuser"])->name("deleteuser");
     //edit user

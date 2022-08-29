@@ -918,8 +918,8 @@
 <!-- chart js -->
 <script src="{{asset('assets/bundles/chart-js/Chart.min.js"')}}></script>
 	<script src="{{asset('assets/bundles/chart-js/utils.js')}}"></script>
-<script src="{{asset('assets/bundles/apexcharts/apexcharts.min.js')}}"></script>
-<script src="{{asset('assets/data/apex-home.js')}}"></script>
+    <script src="{{asset('assets/bundles/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{asset('assets/data/apex-home.js')}}"></script>
 
 <!-- end js include path -->
         <script>

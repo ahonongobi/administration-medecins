@@ -18,7 +18,9 @@ class CreateMembresTable extends Migration
             $table->integer('user_id');
             $table->integer('membre_id')->nullable();
             $table->string('user_email');
+            $table->string('programmes')->nullable();
             $table->string('nom')->nullable();
+
             $table->string('prenom')->nullable();
             $table->string('email')->nullable();
             $table->string('sexe')->nullable();

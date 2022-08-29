@@ -39,6 +39,25 @@
                         @csrf
                         <div class="form-body">
                             <div class="form-group row">
+                                <label class="control-label col-md-3">Choisir un programme:
+                                    <span class="required"> * </span>
+                                </label>
+
+                                <div class="col-md-4">
+                                    <select name="programmes" class="form-control">
+                                        <option value="1">Programme 1</option>
+                                        <option value="2">Programme 2</option>
+                                        <option value="3">Programme 3</option>
+                                    </select>
+
+                                    @if($errors->has('programmes'))
+                                        <span class="text-danger">{{$errors->first('programmes')}}</span>
+                                    @endif
+                                </div>
+
+
+                            </div>
+                            <div class="form-group row">
                                 <label class="control-label col-md-3">Nom et prénom:
                                     <span class="required"> * </span>
                                 </label>
