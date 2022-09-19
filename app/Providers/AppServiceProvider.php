@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+       /**$this->app->bind('path.public', function () {
+            return "/home/cloudrespidom/public_html";
+        }); **/
         //make views path available to all views
         view()->composer('*', function ($view) {
             $view->with('users', Utilisateur::all());
@@ -49,10 +53,12 @@ class AppServiceProvider extends ServiceProvider
                 //count all $tasks
                 $view->with('tasks', Todo::where("user_id",Auth::user()->id)->get()->count() ?? 0);
 
+
                 // get all programmes
                 $view->with('allprogrammes', \App\Models\Programmes::all());
+                //
 
-
+                
 
 
             }

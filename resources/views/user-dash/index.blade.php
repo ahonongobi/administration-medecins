@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-head">
-                    <header>MEMBRES</header>
+                    <header>Liste des patients</header>
                     <div class="tools">
                         <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                         <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
@@ -17,9 +17,25 @@
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="btn-group">
                                 <a href="{{url('addmembres')}}" id="addRow1" class="btn btn-info">
-                                    Ajouter un membre<i class="fa fa-plus"></i>
+                                    Ajouter un patient<i class="fa fa-plus"></i>
+                                </a>
+                            </div><br><br>
+                            <div class="btn-group">
+                                <a href="{{url('chooseprogrames/1')}}" id="addRow1" class="btn btn-info">
+                                    BetaNurs<i class="fa fa-minus"></i>
                                 </a>
                             </div>
+                            <div class="btn-group">
+                                <a href="{{url('chooseprogrames/2')}}" id="addRow1" class="btn btn-info">
+                                    VentaPlus<i class="fa fa-minus"></i>
+                                </a>
+                            </div>
+                            <div class="btn-group">
+                                <a href="{{url('chooseprogrames/3')}}" id="addRow1" class="btn btn-info">
+                                    OncoPlus<i class="fa fa-minus"></i>
+                                </a>
+                            </div>
+
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6">
 
@@ -33,8 +49,8 @@
                             <th>
                                 ID
                             </th>
-                            <th> Nom&Prénom </th>
-                            <th> Email </th>
+                            <th> Nom et Prénom </th>
+                            <th> Accompagnant </th>
                             <th> Sexe </th>
                             <th> Âge </th>
                             <th> Addresse  </th>
@@ -50,9 +66,7 @@
                                     {{$item->membre_id }}
                                 </td>
                                 <td> {{$item->nom }} </td>
-                                <td>
-                                    <a href="mailto:{{$item->email }}">{{$item->email }} </a>
-                                </td>
+                                <td> {{$item->accompagnant }} </td>
                                 <td>
                                     <span class=""> {{$item->sexe }} </span>
                                 </td>
@@ -62,7 +76,7 @@
                                 <td> {{$item->departement}} </td>
                                 <td class="valigntop">
 
-                                    <a href="{{url('voir/'.$item->id)}}" class="tblEditBtn">
+                                    <a href="{{url('voir2/'.$item->id)}}" class="tblEditBtn">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     <a href="{{url('editmembres/'.$item->id)}}" class="tblEditBtn">
@@ -72,8 +86,8 @@
                                         <i class="fa fa-trash-o"></i>
                                     </a>
 
-                                    <a href="/print-pdf/{{$item->id}}">
-                                        <i class="fa fa-file-pdf-o"></i> </a>
+                                    <a href="/print-pdf/{{$item->id}}"target="_blank">
+                                        <i class="fa fa-file-text-o"></i> </a>
 
                                     <!-- make edit, delete, and print pdf icon  in flex  -->
 

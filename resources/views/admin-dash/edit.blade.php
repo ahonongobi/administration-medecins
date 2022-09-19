@@ -105,6 +105,12 @@
                                     </select>
                                 </div>
                             </div>
+							
+							<div class="form-group row">
+												<label class="control-label col-md-3">Profile Picture</label>
+												<div class="col-md-5">
+												<input type="file" class="default" multiple></div>
+							</div>
                         </div>
                         <div class="form-group">
                             <div class="offset-md-3 col-md-9">

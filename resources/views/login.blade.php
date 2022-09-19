@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="RedstarHospital" />
-	<title>Redstar Hospital | Bootstrap Responsive Hospital Admin Template</title>
+	<title>Respidom | EducMed 1.0</title>
 	<!-- google font -->
 	<link href="fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
 	<link href="assets/fonts/font-awesome/v6/css/all.css" rel="stylesheet" type="text/css" />
@@ -31,7 +31,7 @@
 						<a href="" class="signup-image-link"></a>
 					</div>
 					<div class="signin-form">
-						<h2 class="form-title">Connexion</h2>
+						 <center><h4 class="form-title">Veuillez vous connecter</h4> </center>
 						<form action="{{route('loginUser')}}" class="register-form" method="post" id="login-form">
                             @csrf
                             <h5 class="my-4 text-danger">
@@ -41,7 +41,7 @@
                             </h5>
 							<div class="form-group">
 								<div class="">
-									<input name="username" type="text" placeholder="E-mail"
+									<input name="username" type="text" placeholder="Entrez votre adresse email"
 										class="form-control input-height" /> </div>
                                 <small id="helpId" class="text-danger">
                                     @if ($errors->all())
@@ -51,7 +51,7 @@
 							</div>
 							<div class="form-group">
 								<div class="">
-									<input name="password" type="password" placeholder="Mot de passe"
+									<input name="password" type="password" placeholder="Entrez votre mot de passe"
 										class="form-control input-height" />
                                 </div>
                                 <small id="helpId" class="text-danger">
@@ -62,19 +62,17 @@
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-								<label for="remember-me" class="label-agree-term"><span><span></span></span>Se souvenir</label>
+								<i><label for="remember-me" class="label-agree-term"><span><span></span></span>Se souvenir de moi !</label></i>
 							</div>
 							<div class="form-group form-button">
 								<button class="btn btn-round btn-primary" name="signin" id="signin">Connexion</button>
 							</div>
 						</form>
-						<div class="social-login">
-
-						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+		
 	</div>
 	<!-- start js include path -->
 	<script src="assets/bundles/jquery/jquery.min.js"></script>

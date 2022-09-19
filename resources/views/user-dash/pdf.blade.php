@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,389 +11,202 @@
             margin: 0;
         }
     </style>
-    <style>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="EDUCED" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="author" content="HAD" />
+    <!-- google font -->
+    <link href="../../../../../../fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <!-- icons -->
+    <link href="{{asset('assets/fonts/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/fonts/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/fonts/font-awesome/v6/css/all.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/fonts/material-design-icons/material-icon.css')}}" rel="stylesheet" type="text/css" />
+    <!--bootstrap -->
+    <link href="{{asset('assets/bundles/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+    <link rel="stylesheet" href="{{asset('assets/bundles/material/material.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/material_style.css')}}">
+    <!-- Theme Styles -->
+    <link href="{{asset('assets/css/theme_style.css')}}" rel="stylesheet" id="rt_style_components" type="text/css" />
+    <link href="{{asset('assets/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/theme-color.css')}}" rel="stylesheet" type="text/css" />
+    <script src="{{asset('assets/bundles/jquery/jquery.min.js')}}"></script>
 
-        @media print {
-            body{
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
+    <!-- Data Tables -->
+    <!-- full calendar -->
 
-            }
-            html, body{
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-size: small !important;
-            }
-
-            .page-break {
-                page-break-after: always;
-            }
-
-            .page-break-before {
-                page-break-before: always;
-            }
-
-        }
-        @media only print {
-
-            .printthis{
-                visibility: hidden;
-            }
-        }
-        /** not print blink page */
-        @media print {
-            .no-print {
-                display: none;
-            }
-        }
-
-
-
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-
-
-        }
-        *, *:before, *:after {
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif;
-            color: #384047;
-        }
-
-        table {
-
-            width: 90%;
-            margin: 5px auto;
-        }
-
-        caption {
-            font-size: 1.6em;
-            font-weight: 400;
-            padding: 10px 0;
-        }
-
-        thead th {
-            font-weight: 400;
-            background: #6f42c1;
-            color: #FFF;
-
-        }
-
-        tr {
-            background: #f4f7f8;
-            border-bottom: 1px solid #FFF;
-            margin-bottom: 0px;
-        }
-
-        tr:nth-child(even) {
-            background: #e8eeef;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 10px;
-            font-weight: 300;
-        }
-
-        tfoot tr {
-            background: none;
-        }
-
-        tfoot td {
-            padding: 10px 2px;
-            font-size: 0.8em;
-            font-style: italic;
-            color: #8a97a0;
-        }
-        tr>th{
-            width: 50% !important;
-        }
-
-        .printthis{
-            display: flex;
-            justify-content: center;
-        }
-        .logo{
-            display: flex;
-            justify-content: center;
-        }
-        button.print-button {
-            width: 100px;
-            height: 100px;
-        }
-        span.print-icon, span.print-icon::before, span.print-icon::after, button.print-button:hover .print-icon::after {
-            border: solid 4px #333;
-        }
-        span.print-icon::after {
-            border-width: 2px;
-        }
-
-        button.print-button {
-            position: relative;
-            padding: 0;
-            border: 0;
-
-            border: none;
-            background: transparent;
-        }
-
-        span.print-icon, span.print-icon::before, span.print-icon::after, button.print-button:hover .print-icon::after {
-            box-sizing: border-box;
-            background-color: #fff;
-        }
-
-        span.print-icon {
-            position: relative;
-            display: inline-block;
-            padding: 0;
-            margin-top: 20%;
-
-            width: 60%;
-            height: 35%;
-            background: #fff;
-            border-radius: 20% 20% 0 0;
-        }
-
-        span.print-icon::before {
-            content: " ";
-            position: absolute;
-            bottom: 100%;
-            left: 12%;
-            right: 12%;
-            height: 110%;
-
-            transition: height .2s .15s;
-        }
-
-        span.print-icon::after {
-            content: " ";
-            position: absolute;
-            top: 55%;
-            left: 12%;
-            right: 12%;
-            height: 0%;
-            background: #fff;
-            background-repeat: no-repeat;
-            background-size: 70% 90%;
-            background-position: center;
-            background-image: linear-gradient(
-                to top,
-                #fff 0, #fff 14%,
-                #333 14%, #333 28%,
-                #fff 28%, #fff 42%,
-                #333 42%, #333 56%,
-                #fff 56%, #fff 70%,
-                #333 70%, #333 84%,
-                #fff 84%, #fff 100%
-            );
-
-            transition: height .2s, border-width 0s .2s, width 0s .2s;
-        }
-
-        button.print-button:hover {
-            cursor: pointer;
-        }
-
-        button.print-button:hover .print-icon::before {
-            height:0px;
-            transition: height .2s;
-        }
-        button.print-button:hover .print-icon::after {
-            height:120%;
-            transition: height .2s .15s, border-width 0s .16s;
-        }
-        .toolbar{
-            background: #333;
-            width: 100vw;
-            position: fixed;
-            left: 0;
-            top: 0;
-
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .btn{
-            padding: 10px 17px;
-            border-radius: 3px;
-            background: #f4b71a;
-            border: none;
-            font-size: 12px;
-            margin: 10px 5px;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <!-- data tables -->
+    <link href="{{asset('assets/bundles/datatables/plugins/bootstrap/dataTables.bootstrap5.min.css')}}" rel="stylesheet"
+          type="text/css" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" />
 
     </style>
 </head>
 <body>
 
-<div class="header">
+<center>
+                    <div class="col-sm-6">
+						<div class="card">
+						
+                            <div class="sidebar-user">
+                                <div class="sidebar-user-pdf">
+                                    <img alt="image" src="{{asset('img/enteteall.jpg')}}">
+                                </div>
+                            </div>
+                        
+									<br>  
+									<div align="right">&nbsp;&nbsp;&nbsp;&nbsp;<B>DATE : </B>{{$membre->date_update ?? "RAS"}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+									
+									<div Align=Left>&nbsp;&nbsp;&nbsp;&nbsp;<B>PROGRAMME :</B> {{$membre->programmes ??"RAS"}}</div>
+									
+									<div Align=Left>&nbsp;&nbsp;&nbsp;&nbsp;<B>EDUCATEUR : </B>{{Auth::user()->name ?? "admin"}}</div>
+                                    
+									
+									<div class="card-head">                             
+											<header><B>FICHE NOTIFICATION</B></header>
+									</div>
+										<div class="card-body ">
+										
 
+											<table class="table table-bordered">
+														<B>Information Générale</B><br>
+												<thead>
+													<tr>
+														<th><center>Date signature</center></th>
+														<th><center>Age</center></th>
+														<th><center>Genre</center></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
+														<td><center>{{$membre->age}}</center></td>
+														<td><center>{{$membre->sexe}}</center></td>
+													</tr>
+												</tbody>
+												<thead>
+													<tr>
+														<th><center>Wilaya</center></th>
+														<th><center>Code</center></th>
+														<th><center>Carte CHIFA</center></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
+														<td><center>{{$membre->age}}</center></td>
+														<td><center>{{$membre->sexe}}</center></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										
+										<div class="card-body ">
+										
 
+											<table class="table table-bordered">
+														<B>Activité Générale</B><br>
+												<thead>
+													<tr>
+														<th><center>Statut</center></th>
+														<th><center>Remise matériel</center></th>
+														<th><center>Traitement en association</center></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
+														<td><center>{{$membre->age}}</center></td>
+														<td><center>{{$membre->sexe}}</center></td>
+													</tr>
+												</tbody>
+												<thead>
+													<tr>
+														<th><center>Dose optimale</center></th>
+														<th><center>Nombre d'inhalation</center></th>
+														<th><center>Séance d'éducation</center></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
+														<td><center>{{$membre->age}}</center></td>
+														<td><center>{{$membre->sexe}}</center></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										
+										<div class="card-body ">
+										
 
+											<table class="table table-bordered">
+														<B>Activité du programme </B><br>
+												<thead>
+													<tr>
+														<th><center>Compréhension</center></th>
+														<th><center>Maitrise</center></th>
+														
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
+														<td><center>{{$membre->age}}</center></td>
+														
+													</tr>
+												</tbody>
+												
+												
+											</table>
+										</div>
+										
+											<div class="card-body ">
+										
 
-</div>
+											<table class="table table-bordered">
+														<B>Historique des visites </B><br>
+												<thead>
+													<tr>
+														<th><center>N°</center></th>
+														<th><center>Type</center></th>
+														<th><center>Lieu</center></th>
+														<th><center>Date</center></th>
+														<th><center>Dose</center></th>
+														
+													</tr>
+												</thead>
+												<tbody>
+													@foreach($visitehistorique as $visite)
+													<tr>
+														<td><center>{{$loop->iteration}}</center></td>
+														<td><center>{{$visite->type_visite ?? "..."}}</center></td>
+														<td><center>{{$visite->lieu_visite ?? "..."}}</center></td>
+														<td><center>{{$visite->date_visite ?? "..."}}</center></td>
+														<td><center>{{$visite->dose ?? "..."}}</center></td>
+														
+													</tr>
+													@endforeach
+												</tbody>
+												
+												
+												
+												
+											</table>
+										</div>
+						</div>
+						
+					</div>
+					
+								</center>
 
-
-<div class="toolbar no-print">
-    <button class="btn btn-info" onclick="window.print()">
-        Imprimer la fiche
-    </button>
-    <button class="btn btn-info" id="downloadPDF">Télécharger PDF</button>
-</div>
-<div id="bg-image-fluid" class="table">
-<!-- make table with two columns -->
-    <!-- image logo here  -->
-    <div style="margin-top: 2% !important;" class="logo">
-        <div class="text-center">
-            <img alt="logo" width="100px" height="100px" src="https://chart.googleapis.com/chart?cht=qr&chl=Id+Membre:{{$membre->membre_id}}&chs=160x160&chld=L|0"
-                 class="qr-code img-thumbnail img-responsive">
-        </div>
-        <img src="{{asset('clinique.jpg')}}" alt="logo" width="100px" height="100px">
-    </div>
-
-    <!-- table with two row libelle and value -->
-
-    <table>
-
-
-        <caption> Information fiche</caption>
-        <thead>
-        <tr>
-            <th scope="col">Libéllé</th>
-            <th scope="col">Valeurs</th>
-
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <td colspan="3"></td>
-        </tr>
-        </tfoot>
-        <tbody>
-        <tr>
-            <th scope="row">ID Membre</th>
-            <td>{{$membre->membre_id ?? 'RAS'}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Nom et Prénoms </th>
-            <td>{{$membre->nom ?? 'RAS'}}</td>
-
-        </tr>
-
-        <tr>
-            <th scope="row">Date de naissance</th>
-            <td>{{$membre->birthdate ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">E-mail</th>
-            <td>{{$membre->email ?? 'RAS'}}</td>
-
-        </tr>
-
-        <tr>
-            <th scope="row">Sexe</th>
-            <td>{{$membre->sexe}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Âge</th>
-            <td>{{$membre->age}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Adresse</th>
-            <td>{{$membre->addresse ?? 'RAS'}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Département</th>
-            <td>{{$membre->departement ?? 'RAS'}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Téléphone 1</th>
-            <td>{{$membre->tel ?? "RAS"}}</td>
-
-        </tr>
-
-        <tr>
-            <th scope="row">Téléphone 2</th>
-            <td>{{$membre->tel2 ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Etablissement 1</th>
-            <td>{{$membre->etablissement ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Carte assurance</th>
-            <td>{{$membre->caret ?? "RAS"}}</td>
-
-        </tr>
-
-        <tr>
-            <th scope="row">Service</th>
-            <td>{{$membre->service ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Nom du responsible</th>
-            <td>{{$membre->nom_responsable ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Valable : oui - non</th>
-            <td>{{$membre->valable ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Arret : oui - non</th>
-            <td>{{$membre->arret ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Disponibilité oui- non</th>
-            <td>{{$membre->disponibile ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Équipement atribué</th>
-            <td>{{$membre->equipement ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Effet secondaire :</th>
-            <td>{{$membre->effet ?? 'RAS'}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Mise a jour le :
-            </th>
-            <td>{{$membre->date_update ?? "RAS"}}</td>
-
-        </tr>
-        <tr>
-            <th scope="row">Prochaine visite : </th>
-            <td>{{$membre->visite ??"RAS"}}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <!-- table with two row like Nom            value  -->
-
-
-
-
-    </div>
 
     <div class="printthis">
         <button onclick="window.print()" class="print-button"><span class="print-icon"></span></button>
@@ -402,8 +215,6 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
 <script>
     function loadOtherPage() {
 
@@ -413,64 +224,11 @@
             .appendTo("body");                    // add iframe to the DOM to cause it to load the page
 
     }
-
-</script>
-<script>
-    $("#downloadPDF").click(function () {
-
-        // $("#content2").addClass('ml-215'); // JS solution for smaller screen but better to add media queries to tackle the issue
-        getScreenshotOfElement(
-            $("div#bg-image-fluid").get(0),
-            0,
-            0,
-            $("#bg-image-fluid").width() + 45,  // added 45 because the container's (content2) width is smaller than the image, if it's not added then the content from right side will get cut off
-            $("#bg-image-fluid").height() + 30, // same issue as above. if the container width / height is changed (currently they are fixed) then these values might need to be changed as well.
-            function (data) {
-                var pdf = new jsPDF("l", "pt", [
-                    $("#bg-image-fluid").width(),
-                    $("#bg-image-fluid").height(),
-                ]);
-
-                pdf.addImage(
-                    "data:image/png;base64," + data,
-                    "PNG",
-                    0,
-                    0,
-                    $("#bg-image-fluid").width(),
-                    $("#bg-image-fluid").height()
-                );
-                pdf.save("azimuth-certificte.pdf");
-            }
-        );
-    });
-
-    // this function is the configuration of the html2cavas library (https://html2canvas.hertzen.com/)
-    // $("#content2").removeClass('ml-215'); is the only custom line here, the rest comes from the library.
-    function getScreenshotOfElement(element, posX, posY, width, height, callback) {
-        html2canvas(element, {
-            onrendered: function (canvas) {
-                // $("#content2").removeClass('ml-215');  // uncomment this if resorting to ml-125 to resolve the issue
-                var context = canvas.getContext("2d");
-                var imageData = context.getImageData(posX, posY, width, height).data;
-                var outputCanvas = document.createElement("canvas");
-                var outputContext = outputCanvas.getContext("2d");
-                outputCanvas.width = width;
-                outputCanvas.height = height;
-
-                var idata = outputContext.createImageData(width, height);
-                idata.data.set(imageData);
-                outputContext.putImageData(idata, 0, 0);
-                callback(outputCanvas.toDataURL().replace("data:image/png;base64,", ""));
-            },
-            width: width,
-            height: height,
-            useCORS: true,
-            taintTest: false,
-            allowTaint: false,
-        });
-    }
-
 </script>
 
 </body>
 </html>
+
+
+
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <!-- BEGIN HEAD -->
 
 
@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="description" content="Responsive Admin Template" />
-    <meta name="author" content="RedstarHospital" />
-    <title>Redstar Hospital | Bootstrap Responsive Hospital Admin Template</title>
+    <meta name="author" content="HAD" />
+    <title>Respidom | EducMed 1.0</title>
     <!-- google font -->
     <link href="../../../../../../fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <!-- icons -->
@@ -43,7 +43,7 @@
             <div class="page-logo">
                 <a href="index.html">
                     <span class="logo-icon fa fa-stethoscope fa-rotate-45"></span>
-                    <span class="logo-default">REDSTAR</span> </a>
+                    <span class="logo-default">EDUCMED</span> </a>
             </div>
             <!-- logo end -->
             <ul class="nav navbar-nav navbar-left in">
@@ -406,6 +406,14 @@
                             </a>
 
                         </li>
+						
+	                    <li class="nav-item">
+                            <a href="{{URL('/changepassword')}}" class="nav-link nav-toggle"> <i data-feather="key"></i>
+                                <span class="title">Mot de passe</span> <span class="arrow"></span>
+                            </a>
+                        </li>
+						
+						
                         <li class="nav-item">
                             <a href="#" class="nav-link nav-toggle">
                                 <i data-feather="mail"></i>
@@ -874,7 +882,11 @@
                         <input type="password" name="password" class="form-control" id="simpleFormPassword"
                                placeholder="Mot de passe">
                     </div>
-
+                    <div class="form-group row">
+						<label class="control-label col-md-3">Profile Picture</label>
+						<div class="col-md-5">
+						<input type="file" class="default" multiple></div>
+					</div>
 
 
                 </div>
@@ -888,8 +900,8 @@
 </div>
 <!-- start footer -->
 <div class="page-footer">
-    <div class="page-footer-inner"> 2021 &copy; RedStar Hospital Template By
-        <a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">Redstartheme</a>
+    <div class="page-footer-inner"> 2022 &copy; EducMed By
+        <a href="mailto:webmaster@cloud-respidom.com" target="_top" class="makerCss">Respidom</a>
     </div>
     <div class="scroll-to-top">
         <i class="icon-arrow-up"></i>
@@ -918,11 +930,10 @@
 <!-- chart js -->
 <script src="{{asset('assets/bundles/chart-js/Chart.min.js"')}}></script>
 	<script src="{{asset('assets/bundles/chart-js/utils.js')}}"></script>
-    <script src="{{asset('assets/bundles/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('assets/data/apex-home.js')}}"></script>
-
+<script src="{{asset('assets/bundles/apexcharts/apexcharts.min.js')}}"></script>
+<script src="{{asset('assets/data/apex-home.js')}}"></script>
 <!-- end js include path -->
-        <script>
+<script>
             (function() {
 
                 const idleDurationSecs = 120;    // X number of seconds

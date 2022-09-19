@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <!-- BEGIN HEAD -->
 
 
@@ -7,10 +7,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta name="description" content="Responsive Admin Template" />
+    <meta name="description" content="EDUCED" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="author" content="RedstarHospital" />
-    <title>Redstar Hospital | Bootstrap Responsive Hospital Admin Template</title>
+    <meta name="author" content="HAD" />
+    <title></title>
     <!-- google font -->
     <link href="../../../../../../fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <!-- icons -->
@@ -30,6 +30,7 @@
     <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/theme-color.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{asset('assets/bundles/jquery/jquery.min.js')}}"></script>
+    <link href="{{asset('assets/bundles/summernote/summernote.css')}}" rel="stylesheet">
 
     <!-- Data Tables -->
     <!-- full calendar -->
@@ -53,9 +54,9 @@
         <div class="page-header-inner ">
             <!-- logo start -->
             <div class="page-logo">
-                <a href="index.html">
-                    <span class="logo-icon fa fa-stethoscope fa-rotate-45"></span>
-                    <span class="logo-default">REDSTAR</span> </a>
+                <a href="https://cloud-respidom.com/indexAfterLogin">
+                    <span class="fa fa-user-md"></span>
+                    <span class="logo-default">EducMed 1.0</span> </a>
             </div>
             <!-- logo end -->
             <ul class="nav navbar-nav navbar-left in">
@@ -79,212 +80,31 @@
             <!-- start header menu -->
             <div class="top-menu">
                 <ul class="nav navbar-nav pull-right">
-                    <!-- start language menu -->
-                    <li class="dropdown language-switch">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <img
-                                src="img/flags/gb.png" class="position-left" alt=""> English
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="deutsch"><img src="img/flags/de.png" alt=""> Deutsch</a>
-                            </li>
-                            <li>
-                                <a class="ukrainian"><img src="img/flags/ua.png" alt=""> Українська</a>
-                            </li>
-                            <li>
-                                <a class="english"><img src="img/flags/gb.png" alt=""> English</a>
-                            </li>
-                            <li>
-                                <a class="espana"><img src="img/flags/es.png" alt=""> España</a>
-                            </li>
-                            <li>
-                                <a class="russian"><img src="img/flags/ru.png" alt=""> Русский</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- end language menu -->
-                    <!-- start notification dropdown -->
-                    <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
-                           data-close-others="true">
-                            <i data-feather="bell"></i>
-                            <span class="badge headerBadgeColor1"> 6 </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="external">
-                                <h3><span class="bold">Notifications</span></h3>
-                                <span class="notification-label purple-bgcolor">New 6</span>
-                            </li>
-                            <li>
-                                <ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">just now</span>
-                                            <span class="details">
-													<span class="notification-icon circle deepPink-bgcolor"><i
-                                                            class="fa fa-check"></i></span>
-													Congratulations!. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">3 mins</span>
-                                            <span class="details">
-													<span class="notification-icon circle purple-bgcolor"><i
-                                                            class="fa fa-user o"></i></span>
-													<b>John Micle </b>is now following you. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">7 mins</span>
-                                            <span class="details">
-													<span class="notification-icon circle blue-bgcolor"><i
-                                                            class="fa fa-comments-o"></i></span>
-													<b>Sneha Jogi </b>sent you a message. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">12 mins</span>
-                                            <span class="details">
-													<span class="notification-icon circle pink"><i
-                                                            class="fa fa-heart"></i></span>
-													<b>Ravi Patel </b>like your photo. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">15 mins</span>
-                                            <span class="details">
-													<span class="notification-icon circle yellow"><i
-                                                            class="fa fa-warning"></i></span> Warning! </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="time">10 hrs</span>
-                                            <span class="details">
-													<span class="notification-icon circle red"><i
-                                                            class="fa fa-times"></i></span> Application error. </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="dropdown-menu-footer">
-                                    <a href="javascript:void(0)"> All notifications </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- end notification dropdown -->
-                    <!-- start message dropdown -->
-                    <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-                        <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
-                           data-close-others="true">
-                            <i data-feather="mail"></i>
-                            <span class="badge headerBadgeColor2"> 2 </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="external">
-                                <h3><span class="bold">Messages</span></h3>
-                                <span class="notification-label cyan-bgcolor">New 2</span>
-                            </li>
-                            <li>
-                                <ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-                                    <li>
-                                        <a href="#">
-												<span class="photo">
-													<img src="img/doc/doc2.jpg" class="img-circle" alt="">
-												</span>
-                                            <span class="subject">
-													<span class="from"> Sarah Smith </span>
-													<span class="time">Just Now </span>
-												</span>
-                                            <span class="message"> Jatin I found you on LinkedIn... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-												<span class="photo">
-													<img src="img/doc/doc3.jpg" class="img-circle" alt="">
-												</span>
-                                            <span class="subject">
-													<span class="from"> John Deo </span>
-													<span class="time">16 mins </span>
-												</span>
-                                            <span class="message"> Fwd: Important Notice Regarding Your Domain
-													Name... </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-												<span class="photo">
-													<img src="img/doc/doc1.jpg" class="img-circle" alt="">
-												</span>
-                                            <span class="subject">
-													<span class="from"> Rajesh </span>
-													<span class="time">2 hrs </span>
-												</span>
-                                            <span class="message"> pls take a print of attachments. </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-												<span class="photo">
-													<img src="img/doc/doc8.jpg" class="img-circle" alt="">
-												</span>
-                                            <span class="subject">
-													<span class="from"> Lina Smith </span>
-													<span class="time">40 mins </span>
-												</span>
-                                            <span class="message"> Apply for Ortho Surgeon </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-												<span class="photo">
-													<img src="img/doc/doc5.jpg" class="img-circle" alt="">
-												</span>
-                                            <span class="subject">
-													<span class="from"> Jacob Ryan </span>
-													<span class="time">46 mins </span>
-												</span>
-                                            <span class="message"> Request for leave application. </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="dropdown-menu-footer">
-                                    <a href="#"> All Messages </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- end message dropdown -->
                     <!-- start manage user dropdown -->
                     <li class="dropdown dropdown-user">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
                             <img alt="" class="img-circle " src="{{asset('img/dp.jpg')}}" />
-                            <span class="username username-hide-on-mobile"> Kiran
+                            <span class="username username-hide-on-mobile"> {{Auth::user()->name ?? "admin"}}
+						
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="user_profile.html">
-                                    <i class="icon-user"></i> Profile </a>
+                                <a href="{{url('profilo')}}"><i class="icon-user"></i> Profile </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{url('settings')}}">
                                     <i class="icon-settings"></i> Settings
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="icon-directions"></i> Help
+                                <a href="{{url('faq')}}">
+                                    <i class="icon-directions"></i> FAQ
                                 </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="lock_screen.html">
+                                <a href="{{url('lock')}}">
                                     <i class="icon-lock"></i> Lock
                                 </a>
                             </li>
@@ -312,12 +132,12 @@
         </a>
         <div class="settingSidebar-body ps-container ps-theme-default">
             <div class=" fade show active">
-                <div class="setting-panel-header">Setting Panel
+                <div class="setting-panel-header">Affichage
                 </div>
                 <div class="quick-setting slimscroll-style">
                     <ul id="themecolors">
                         <li>
-                            <p class="sidebarSettingTitle">Sidebar Color</p>
+                            <p class="sidebarSettingTitle">La barre latérale</p>
                         </li>
                         <li class="complete">
                             <div class="theme-color sidebar-theme">
@@ -338,7 +158,7 @@
                             </div>
                         </li>
                         <li>
-                            <p class="sidebarSettingTitle">Header Brand color</p>
+                            <p class="sidebarSettingTitle">EducMed</p>
                         </li>
                         <li class="theme-option">
                             <div class="theme-color logo-theme">
@@ -359,7 +179,7 @@
                             </div>
                         </li>
                         <li>
-                            <p class="sidebarSettingTitle">Header color</p>
+                            <p class="sidebarSettingTitle">Couleur d'en-tête</p>
                         </li>
                         <li class="theme-option">
                             <div class="theme-color header-theme">
@@ -405,12 +225,12 @@
                                 </div>
                                 <div class="sidebar-user-details">
                                     <div class="user-name">{{Auth::user()->name ?? "admin"}}</div>
-                                    <div class="user-role">Administrateur</div>
+                                    <div class="user-role">EDUCATEUR</div>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item start active open">
-                            <a href="{{url('user')}}" class="nav-link nav-toggle">
+                            <a href="{{url('indexAfterLogin')}}" class="nav-link nav-toggle">
                                 <i data-feather="airplay"></i>
                                 <span class="title">Tableau de bord</span>
                                 <span class="selected"></span>
@@ -418,164 +238,127 @@
                             </a>
 
                         </li>
-                        <li class="nav-item">
+						
+						<li class="nav-item">
                             <a href="#" class="nav-link nav-toggle">
-                                <i data-feather="mail"></i>
-                                <span class="title">Email</span>
+                                <i data-feather="users"></i>
+                                <span class="title">Patients</span>
                                 <span class="arrow"></span>
-                                <span class="label label-rouded label-menu deepPink-bgcolor">3</span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="email_inbox.html" class="nav-link ">
-                                        <span class="title">Inbox</span>
-                                    </a>
+							    <li class="nav-item  ">
+                            <a href="{{url('user')}}" class="nav-link nav-toggle">
+                                <span class="title">Mes patients</span>
+                                <span class="selected"></span>
+                            </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="email_view.html" class="nav-link ">
-                                        <span class="title">View Mail</span>
-                                    </a>
+                                  <a href="{{URL('addmembres')}}" class="nav-link nav-toggle">
+                                <span class="title">Ajouter patient</span></a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="email_compose.html" class="nav-link ">
-                                        <span class="title">Compose Mail</span>
-                                    </a>
+								<li class="nav-item  ">
+                                  <a href="{{URL('visites')}}" class="nav-link nav-toggle">
+                                <span class="title">Ajouter une visite</span></a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+						
+						<li class="nav-item">
+                            <a href="#" class="nav-link nav-toggle">
+                                <i data-feather="file"></i>
+                                <span class="title">Rapport</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+							    <li class="nav-item  ">
+                            <a href="{{url('rapportq')}}" class="nav-link nav-toggle">
+                                <span class="title">Rapport quotidien</span>
+                                <span class="selected"></span></a>
+                                </li>
+								
+                                <li class="nav-item  ">
+                                  <a href="{{url('rapporth')}}" class="nav-link nav-toggle">
+                                <span class="title">Rapport hebdomadaire</span></a>
+                                </li>
+                            </ul>
+                        </li>
+						
+						<li class="nav-item">
+                            <a href="#" class="nav-link nav-toggle"> <i data-feather="alert-triangle"></i>
+                                <span class="title">Effet indisirable</span></span>
+                            </a>
+                        </li>
+						
+					  <li class="nav-item">
+                            <a href="{{URL('/downloadfile')}}" class="nav-link nav-toggle"> <i data-feather="download"></i>
+                                <span class="title">Téléchargement</span></span>
+                            </a>
+
+                        </li>
+						
+						<li class="nav-item">
+                            <a href="{{url('pagea2')}}" class="nav-link nav-toggle"> <i data-feather="box"></i>
+                                <span class="title">Matériaux</span></span>
+                            </a>
+                        </li>
+						
+						<li class="nav-item">
                             <a href="{{url('calendrier')}}" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
                                 <span class="title">Calendrier</span>
                             </a>
                         </li>
-
-                        <li class="nav-item  ">
-                            <a href="{{URL('contacts')}}" class="nav-link nav-toggle"> <i data-feather="user"></i>
-                                <span class="title">Ajouter Contacts</span> <span class="arrow"></span>
+						<li class="nav-item  ">
+                            <a href="{{URL('todo')}}" class="nav-link nav-toggle"> <i data-feather="tag"></i>
+                                <span class="title">Mes tâches</span>
                             </a>
-
                         </li>
-
-                        <li class="nav-item  ">
-                            <a href="{{URL('mycontacts')}}" class="nav-link nav-toggle"> <i data-feather="user"></i>
-                                <span class="title">Mes Contacts</span> <span class="arrow"></span>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link nav-toggle">
+                                <i data-feather="book-open"></i>
+                                <span class="title">Répertoire</span>
+                                <span class="arrow"></span>
                             </a>
-
+                            <ul class="sub-menu">
+							    <li class="nav-item  ">
+                                <a href="{{URL('mycontacts')}}" class="nav-link nav-toggle">
+                                <span class="title">Mes Contacts</span></a>
+                                </li>
+                                <li class="nav-item  ">
+                                  <a href="{{URL('contacts')}}" class="nav-link nav-toggle">
+                                <span class="title">Ajouter contact</span></a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item  ">
-                            <a href="{{URL('todo')}}" class="nav-link nav-toggle"> <i data-feather="book"></i>
-                                <span class="title">Mes tâches</span> <span class="arrow"></span>
-                            </a>
-
-                        </li>
-
                         <li class="nav-item">
                             <a href="{{URL('/changepassword')}}" class="nav-link nav-toggle"> <i data-feather="key"></i>
-                                <span class="title">Mot de passe</span> <span class="arrow"></span>
+                                <span class="title">Mot de passe</span></span>
                             </a>
 
                         </li>
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link nav-toggle"> <i data-feather="users"></i>
-                                <span class="title">Other Staff</span> <span class="arrow"></span>
+                            <a href="#" class="nav-link nav-toggle"> <i data-feather="mail"></i>
+                                <span class="title">Webmail</span> 
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="all_staffs.html" class="nav-link "> <span class="title">All
-												Staff</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="add_staff.html" class="nav-link "> <span class="title">Add Staff</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="add_staff_material.html" class="nav-link "> <span class="title">Add
-												Staff Material</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="edit_staff.html" class="nav-link "> <span class="title">Edit
-												Staff</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="staff_profile.html" class="nav-link "> <span class="title">Staff
-												Profile</span>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+						<li class="nav-item  ">
+                            <a href="{{url('faq')}}" class="nav-link nav-toggle"> <i data-feather="help-circle"></i>
+                                <span class="title">FAQ</span> 
+                            </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link nav-toggle"> <i data-feather="smile"></i>
-                                <span class="title">Patients</span> <span class="arrow"></span>
+                            <a href="{{url('logout')}}" class="nav-link nav-toggle"> <i data-feather="log-out"></i>
+                                <span class="title">Déconnexion</span> 
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="all_patients.html" class="nav-link "> <span class="title">All
-												Patients</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="add_patient.html" class="nav-link "> <span class="title">Add
-												Patient</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="add_patient_material.html" class="nav-link "> <span class="title">Add
-												Patient Material</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="edit_patient.html" class="nav-link "> <span class="title">Edit
-												Patient</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="patient_profile.html" class="nav-link "> <span class="title">Patient
-												Profile</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="nav-item  ">
-                            <a href="#" class="nav-link nav-toggle"> <i data-feather="file-plus"></i>
-                                <span class="title">Room Allotment</span> <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="room_allotment.html" class="nav-link "> <span class="title">Alloted
-												Rooms</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="add_room_allotment.html" class="nav-link "> <span class="title">New
-												Allotment</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="add_room_allotment_material.html" class="nav-link "> <span
-                                            class="title">New Allotment Material</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="edit_room_allotment.html" class="nav-link "> <span class="title">Edit
-												Allotment</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                       
+
+                       
 
 
 
 
 
-
-
-
-
-
-                        </li>
+                       
                     </ul>
                 </div>
             </div>
@@ -587,7 +370,7 @@
                 <div class="page-bar">
                     <div class="page-title-breadcrumb">
                         <div class=" pull-left">
-                            <div class="page-title">Tableau de bord</div>
+                            <div class="page-title">Veuillez sélectionner un programme:</div>
                         </div>
                         <ol class="breadcrumb page-breadcrumb pull-right">
                             <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
@@ -598,83 +381,52 @@
                     </div>
                 </div>
                 <!-- start widget -->
-                <div class="state-overview">
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6 col-12">
-                            <div class="info-box bg-blue">
-                                <span class="info-box-icon push-bottom"><i class="material-icons">group</i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Membres</span>
-                                    <span class="info-box-number">
-                                        @if($members < 10)
-                                            0{{$members}}
-                                        @else
-                                            {{$members}}
-                                        @endif
-                                    </span>
+                <div class="row">
+            <a href="{{url('chooseprogrames/1')}}" class="col-xl-4 col-md-6 col-12">
+                <div class="info-box bg-orange">
+                    <span class="info-box-icon push-bottom"><img alt="image" src="{{asset('img/brain.png')}}"></span>
+					
+                    <div class="info-box-content">
+                        <span class="info-box-text"> </span>
+                        <span class="info-box-number">
+                          BetaNurse
+                    </span>
 
-
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xl-3 col-md-6 col-12">
-                            <div class="info-box bg-orange">
-                                <span class="info-box-icon push-bottom"><i class="material-icons">person</i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Utilisateurs</span>
-                                    <span class="info-box-number">
-                                        @if($Countusers < 10)
-                                            0{{$Countusers}}
-                                        @else
-                                            {{$Countusers}}
-                                        @endif
-                                    </span>
-
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xl-3 col-md-6 col-12">
-                            <div class="info-box bg-purple">
-									<span class="info-box-icon push-bottom"><i
-                                            class="material-icons">content_cut</i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Programmes</span>
-                                    <span class="info-box-number">03</span>
-
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xl-3 col-md-6 col-12">
-                            <div class="info-box bg-success">
-									<span class="info-box-icon push-bottom"><i
-                                            class="material-icons">book</i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Tâches</span>
-                                    <span class="info-box-number">
-                                        @if($tasks < 10)
-                                            0{{$tasks}}
-                                        @else
-                                            {{$tasks}}
-                                        @endif
-                                    </span>
-
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
                     </div>
+                    <!-- /.info-box-content -->
                 </div>
+                <!-- /.info-box -->
+            </a>
+
+        <!-- /.col -->
+        <a href="{{url('chooseprogrames/2')}}" class="col-xl-4 col-md-6 col-12">
+            <div class="info-box bg-purple">
+						<span class="info-box-icon push-bottom"><img alt="image" src="{{asset('img/poumon.png')}}"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text"> </span>
+                    <span class="info-box-number">VentaPlus</span>
+
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </a>
+        <!-- /.col -->
+        <a href="{{url('chooseprogrames/3')}}" class="col-xl-4 col-md-6 col-12">
+            <div class="info-box bg-success">
+								<span class="info-box-icon push-bottom"><img alt="image" src="{{asset('img/can.png')}}"></span>
+                <div class="info-box-content">
+                    <span class="info-box-text"></span>
+                    <span class="info-box-number">
+                       OncoPlus
+                                    </span>
+
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </a>
+    </div>
 
 
                 <!-- end widget -->
@@ -684,136 +436,7 @@
                 <!-- start chat sidebar -->
                 <div class="chat-sidebar-container" data-close-on-body-click="false">
                     <div class="chat-sidebar">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-bs-toggle="tab"> <i
-                                        class="material-icons">chat</i>Chat
-                                    <span class="badge badge-danger">4</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-bs-toggle="tab"> <i
-                                        class="material-icons">settings</i>
-                                    Settings
-                                </a>
-                            </li>
-                        </ul>
                         <div class="tab-content">
-                            <!-- Start Doctor Chat -->
-                            <div class="tab-pane active chat-sidebar-chat in active show" role="tabpanel"
-                                 id="quick_sidebar_tab_1">
-                                <div class="chat-sidebar-list">
-                                    <div class="chat-sidebar-chat-users slimscroll-style" data-rail-color="#ddd"
-                                         data-wrapper-class="chat-sidebar-list">
-                                        <div class="chat-header">
-                                            <h5 class="list-heading">Online</h5>
-                                        </div>
-                                        <ul class="media-list list-items">
-                                            <li class="media"><img class="media-object" src="img/doc/doc3.jpg" width="35"
-                                                                   height="35" alt="...">
-                                                <i class="online dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">John Deo</h5>
-                                                    <div class="media-heading-sub">Spine Surgeon</div>
-                                                </div>
-                                            </li>
-                                            <li class="media">
-                                                <div class="media-status">
-                                                    <span class="badge badge-success">5</span>
-                                                </div> <img class="media-object" src="img/doc/doc1.jpg" width="35"
-                                                            height="35" alt="...">
-                                                <i class="busy dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Rajesh</h5>
-                                                    <div class="media-heading-sub">Director</div>
-                                                </div>
-                                            </li>
-                                            <li class="media"><img class="media-object" src="img/doc/doc5.jpg" width="35"
-                                                                   height="35" alt="...">
-                                                <i class="away dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Jacob Ryan</h5>
-                                                    <div class="media-heading-sub">Ortho Surgeon</div>
-                                                </div>
-                                            </li>
-                                            <li class="media">
-                                                <div class="media-status">
-                                                    <span class="badge badge-danger">8</span>
-                                                </div> <img class="media-object" src="img/doc/doc4.jpg" width="35"
-                                                            height="35" alt="...">
-                                                <i class="online dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Kehn Anderson</h5>
-                                                    <div class="media-heading-sub">CEO</div>
-                                                </div>
-                                            </li>
-                                            <li class="media"><img class="media-object" src="img/doc/doc2.jpg" width="35"
-                                                                   height="35" alt="...">
-                                                <i class="busy dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Sarah Smith</h5>
-                                                    <div class="media-heading-sub">Anaesthetics</div>
-                                                </div>
-                                            </li>
-                                            <li class="media"><img class="media-object" src="img/doc/doc7.jpg" width="35"
-                                                                   height="35" alt="...">
-                                                <i class="online dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Vlad Cardella</h5>
-                                                    <div class="media-heading-sub">Cardiologist</div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="chat-header">
-                                            <h5 class="list-heading">Offline</h5>
-                                        </div>
-                                        <ul class="media-list list-items">
-                                            <li class="media">
-                                                <div class="media-status">
-                                                    <span class="badge badge-warning">4</span>
-                                                </div> <img class="media-object" src="img/doc/doc6.jpg" width="35"
-                                                            height="35" alt="...">
-                                                <i class="offline dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Jennifer Maklen</h5>
-                                                    <div class="media-heading-sub">Nurse</div>
-                                                    <div class="media-heading-small">Last seen 01:20 AM</div>
-                                                </div>
-                                            </li>
-                                            <li class="media"><img class="media-object" src="img/doc/doc8.jpg" width="35"
-                                                                   height="35" alt="...">
-                                                <i class="offline dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Lina Smith</h5>
-                                                    <div class="media-heading-sub">Ortho Surgeon</div>
-                                                    <div class="media-heading-small">Last seen 11:14 PM</div>
-                                                </div>
-                                            </li>
-                                            <li class="media">
-                                                <div class="media-status">
-                                                    <span class="badge badge-success">9</span>
-                                                </div> <img class="media-object" src="img/doc/doc9.jpg" width="35"
-                                                            height="35" alt="...">
-                                                <i class="offline dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Jeff Adam</h5>
-                                                    <div class="media-heading-sub">Compounder</div>
-                                                    <div class="media-heading-small">Last seen 3:31 PM</div>
-                                                </div>
-                                            </li>
-                                            <li class="media"><img class="media-object" src="img/doc/doc10.jpg" width="35"
-                                                                   height="35" alt="...">
-                                                <i class="offline dot"></i>
-                                                <div class="media-body">
-                                                    <h5 class="media-heading">Anjelina Cardella</h5>
-                                                    <div class="media-heading-sub">Physiotherapist</div>
-                                                    <div class="media-heading-small">Last seen 7:45 PM</div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                             <!-- End Doctor Chat -->
                             <!-- Start Setting Panel -->
                             <div class="tab-pane chat-sidebar-settings" role="tabpanel" id="quick_sidebar_tab_3">
@@ -1028,9 +651,9 @@
             </div>
             <!-- start footer -->
             <div class="page-footer">
-                <div class="page-footer-inner"> 2021 &copy; RedStar Hospital Template By
-                    <a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">Redstartheme</a>
-                </div>
+    <div class="page-footer-inner"> 2022 &copy; EducMed By
+        <a href="mailto:webmaster@cloud-respidom.com" target="_top" class="makerCss">Respidom</a>
+    </div>
                 <div class="scroll-to-top">
                     <i class="icon-arrow-up"></i>
                 </div>
@@ -1069,7 +692,11 @@
         <script src="{{asset('assets/bundles/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{asset('assets/data/apex-home.js')}}"></script>
         <!-- end js include path -->
-        <script>
+        <!-- Summernote -->
+        <script src="{{asset('assets/bundles/summernote/summernote.js')}}"></script>
+        <script src="{{asset('assets/data/summernote-data.js')}}"></script>
+
+       <script>
             (function() {
 
                 const idleDurationSecs = 120;    // X number of seconds
@@ -1095,8 +722,6 @@
 
             })();
         </script>
-
-
 
 
 </body>

@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-head">
-                    <header>MEMBRES</header>
+                    <header>PROGRAMME {{$keys ?? ""}}</header>
                     <div class="tools">
                         <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                         <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
@@ -33,8 +33,8 @@
                             <th>
                                 ID
                             </th>
-                            <th> Nom&Prénom </th>
-                            <th> Email </th>
+                            <th> Nom et Prénom </th>
+                         
                             <th> Sexe </th>
                             <th> Âge </th>
                             <th> Addresse  </th>
@@ -50,12 +50,8 @@
                                     {{$item->membre_id }}
                                 </td>
                                 <td> {{$item->nom }} </td>
-                                <td>
-                                    <a href="mailto:{{$item->email }}">{{$item->email }} </a>
-                                </td>
-                                <td>
-                                    <span class=""> {{$item->sexe }} </span>
-                                </td>
+                              
+                                <td><span class=""> {{$item->sexe }} </span></td>
                                 <td> {{$item->age}}ans </td>
                                 <td> {{$item->addresse }} </td>
                                 <td> {{$item->tel}} </td>

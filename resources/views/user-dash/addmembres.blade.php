@@ -13,6 +13,8 @@
 
                 </div>
             @endif
+			
+
         <div class="col-md-12 col-sm-12">
             <div class="card card-box">
                 <div class="card-head">
@@ -45,18 +47,18 @@
 
                                 <div class="col-md-4">
                                     <select name="programmes" class="form-control">
-                                        <option value="1">Programme 1</option>
-                                        <option value="2">Programme 2</option>
-                                        <option value="3">Programme 3</option>
+                                        <option value="BetaNurse">BetaNurse</option>
+                                        <option value="VentaPlus">VentaPlus</option>
+                                        <option value="OncoPlus">OncoPlus</option>
                                     </select>
 
                                     @if($errors->has('programmes'))
                                         <span class="text-danger">{{$errors->first('programmes')}}</span>
                                     @endif
                                 </div>
-
-
                             </div>
+							<div class="contact-form">
+
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Nom et prénom:
                                     <span class="required"> * </span>
@@ -71,6 +73,7 @@
 
 
                             </div>
+									
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Date de naissance:
                                     <span class="required"> * </span>
@@ -116,7 +119,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Adresse:
+                                <label class="control-label col-md-3">Adresse (ligne 1):
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
@@ -127,11 +130,20 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Department:<span class="required"> * </span></label>
+                                <label class="control-label col-md-3">Adresse (ligne 2):<span class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <input name="departement" value="{{old('departement')}}" type="text" class="form-control" />
                                     @if($errors->has('departement'))
                                         <span class="text-danger">{{$errors->first('departement')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <label class="control-label col-md-3">Nom de l'accompagnant :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="nom_accompagnant"  value="{{old('nom_accompagnant')}}" type="text" class="form-control" />
+                                    @if($errors->has('tel2'))
+                                        <span class="text-danger">{{$errors->first('tel2')}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -179,7 +191,7 @@
                                 <hr />
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Etablissement :<span class="required"> * </span></label>
+                                <label class="control-label col-md-3">Structure :<span class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <input name="etablissement"  value="{{old('etablissement')}}" type="text" class="form-control" />
                                     @if($errors->has('etablissement'))
@@ -196,8 +208,8 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3">Nom du responsible :<span class="required"> * </span></label>
+							                            <div class="form-group row">
+                                <label class="control-label col-md-3">Médecin :<span class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <input name="nom_responsable"  value="{{old('nom_responsable')}}" type="text" class="form-control" />
                                     @if($errors->has('tel2'))

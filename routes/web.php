@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});
 
 Route::get('/', function () {
     return view('login');
@@ -33,7 +37,7 @@ Route::group(['middleware'=>'auth'],function() {
     //Loginafter route
     Route::get('/indexAfterLogin',[\App\Http\Controllers\AdminController::class,"indexAfterLogin"])->name("indexAfterLogin");
     //display choose programme
-    Route::get('chooseprogrames/{keys}',[\App\Http\Controllers\MembresController::display]);
+    Route::get('chooseprogrames/{keys}',[\App\Http\Controllers\MembresController::class,'display']);
     //delete user
     Route::get('/delete/{id}',[\App\Http\Controllers\AdminController::class,"deleteuser"])->name("deleteuser");
     //edit user
@@ -42,6 +46,9 @@ Route::group(['middleware'=>'auth'],function() {
     Route::post('/edit/{id}',[\App\Http\Controllers\AdminController::class,"updateuser"])->name("postedituser");
     //voir
     Route::get('/voir/{id}',[\App\Http\Controllers\MembresController::class,"voiruser"])->name("voiruser");
+    //voir 2 parceque l'autre ne marche pas avec tableau. IL y a des conflit de variable
+    Route::get('/voir2/{id}',[\App\Http\Controllers\MembresController::class,"voiruser2"])->name("voiruser2");
+
     //route addmembres
     Route::get('/addmembres',[\App\Http\Controllers\MembresController::class,"addmembres"])->name("addmembres");
     //send rout
@@ -56,6 +63,8 @@ Route::group(['middleware'=>'auth'],function() {
 
     //printpdf
     Route::get('print-pdf/{id}',[\App\Http\Controllers\MembresController::class,"pdfview"]);
+    Route::get('print-pdf-2/{id}',[\App\Http\Controllers\MembresController::class,"pdfview2"]);
+
     Route::get('print-pdf-samepage/{id}',[\App\Http\Controllers\MembresController::class,"pdfviewsame"]);
     //calendrier
     Route::get('/calendrier',[\App\Http\Controllers\MembresController::class,"calendrier"])->name("calendrier");
@@ -101,7 +110,37 @@ Route::group(['middleware'=>'auth'],function() {
     //delete programmes
     Route::get('/deleteprogrammes/{id}',[\App\Http\Controllers\AdminController::class,'deleteprogrammes'])->name("admin.deleteprogrammes");
 
+    // haha visites start here
+    Route::get('/visites',[\App\Http\Controllers\VisiteController::class,'index'])->name("visites");
+    //addvisite
+    Route::get('/addvisite/{programmes}',[\App\Http\Controllers\VisiteController::class,'addvisiteView'])->name("addvisite");
+    //addvisite post
+    Route::post('/saveVisite',[\App\Http\Controllers\VisiteController::class,'saveVisite'])->name("saveVisite");
+    // choosevisiter by programme
+    Route::get('/choosevisiter/{programme}',[\App\Http\Controllers\VisiteController::class,'choosevisiter'])->name("choosevisiter");
+    // editvisites
+    Route::get('/editvisites/{id}',[\App\Http\Controllers\VisiteController::class,'editvisites'])->name("editvisites");
+    //editVisite 
+    Route::post('/editVisite',[\App\Http\Controllers\VisiteController::class,'editVisitePost'])->name("editVisite");
+    //deletevisites
+    Route::get('/deletevisites/{id}',[\App\Http\Controllers\VisiteController::class,'deletevisites'])->name("deletevisites");
+    // haha fichier start here
+    Route::get('/downloadfile',[\App\Http\Controllers\FichierController::class,'index'])->name("fichier");
+    // addfile view
+    Route::get('/addfile',[\App\Http\Controllers\FichierController::class,'addfileView'])->name("addfile");
 
+    //storeFile 
+    Route::post('/storeFile',[\App\Http\Controllers\FichierController::class,'storeFile'])->name("storeFile");
+    //deletefichier
+    Route::get('/deletefichier/{id}',[\App\Http\Controllers\FichierController::class,'deletefichier'])->name("deletefichier");
+    //faq
+    Route::get('/faq',[\App\Http\Controllers\FaqController::class,'index'])->name("faq");
+    //addfaq
+    Route::get('/addfaq',[\App\Http\Controllers\FaqController::class,'addfaqView'])->name("addfaq");
+    //storefaq
+    Route::post('/storeFaq',[\App\Http\Controllers\FaqController::class,'storefaq'])->name("storeFaq");
+    //deletefaq
+    Route::get('/deletefaq/{id}',[\App\Http\Controllers\FaqController::class,'deletefaq'])->name("deletefaq");
 });
 //logout
 Route::get('/logout',[\App\Http\Controllers\LoginController::class,"logout"])->name("logout");

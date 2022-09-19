@@ -39,6 +39,21 @@
                         @csrf
                         <div class="form-body">
                             <div class="form-group row">
+                                <label class="control-label col-md-3">Programme:
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <input type="text" value="{{$membre->programmes}}" name="programmes" data-required="1"
+                                           class="form-control" />
+                                    <small class="text-warning">Très important (sensible à la casse): BetaNurse ou VentaPlus ou OncoPlus  </small>
+                                    @if($errors->has('programmes'))
+                                        <span class="text-danger">{{$errors->first('programmes')}}</span>
+                                    @endif
+                                </div>
+
+
+                            </div>
+                            <div class="form-group row">
                                 <label class="control-label col-md-3">Nom et prénom:
                                     <span class="required"> * </span>
                                 </label>
@@ -49,8 +64,15 @@
                                         <span class="text-danger">{{$errors->first('name')}}</span>
                                     @endif
                                 </div>
-
-
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Nom de l'accompagnant :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="nom_accompagnant"  value="{{$membre->nom_accompagnant}}" type="text" class="form-control" />
+                                    @if($errors->has('tel2'))
+                                        <span class="text-danger">{{$errors->first('tel2')}}</span>
+                                    @endif
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Date de naissance:
@@ -254,5 +276,8 @@
             </div>
         </div>
     </div>
+	
+	
+	
     <!-- end page content -->
 @endsection

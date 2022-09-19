@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Membres;
+use App\Models\Visite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect,Response;
@@ -151,12 +153,35 @@ class MembresController extends Controller
             return back()->with("error", "Erreur lors de la suppression du membre");
         }
     }
+    // delete 2
+    public function  deletemembres2($id)
+    {
+        $membre = \App\Models\Membres::find($id);
+        $membre->delete();
+        if ($membre->delete()) {
+            return back()->with("success", "Membre supprimé avec succès");
+        } else {
+            return back()->with("error", "Erreur lors de la suppression du membre");
+        }
+    }
 
     //pdf controller stat here
     public function pdfview($id){
         //get memebre where id = $id
         $membre = \App\Models\Membres::find($id);
-        return view('user-dash.pdf',compact('membre'));
+        //go to visite model and get user where membre_id $membre->membre_id
+        $visitehistorique = \App\Models\Visite::where("membre_id", $membre->membre_id)->get();
+        return view('user-dash.pdf',compact('membre', 'visitehistorique'));
+    }
+
+    //pdf view 2 pour coté concernat les visites
+     //pdf controller stat here
+     public function pdfview2($id){
+        // select memebre_id from visite where membre_id = $id
+        $visite = Visite::where('id',$id)->first();
+        $membre = \App\Models\Membres::where('membre_id',$visite->membre_id)->first();
+        $visitehistorique = \App\Models\Visite::where('membre_id',$visite->membre_id)->get();
+        return view('user-dash.pdf',compact('membre', 'visitehistorique'));
     }
 
     //pdf controller stat here
@@ -184,13 +209,34 @@ class MembresController extends Controller
 
     //voiruser
     public function voiruser($id){
-        $membre = \App\Models\Membres::find($id);
-        return view('user-dash.voir',compact('membre'));
+        
+
+        // select memebre_id from visite where membre_id = $id
+        $visite = Visite::where('id',$id)->first();
+        $membre = \App\Models\Membres::where('membre_id',$visite->membre_id)->first();
+        $historyvisite = \App\Models\Visite::where('membre_id',$visite->membre_id)->get();
+        return view('user-dash.voir',compact('membre','historyvisite'));
     }
+
+    //voiruser2 
+    public function voiruser2($id){
+        
+        $membre = \App\Models\Membres::where('id',$id)->first();
+        //the get membre id from membre table
+        $historyvisite = Visite::where('membre_id',$membre->membre_id)->get();
+        // select memebre_id from visite where membre_id = $id
+        
+        //$historyvisite = \App\Models\Visite::where('membre_id',$visite->membre_id)->get();
+        return view('user-dash.voir',compact('membre','historyvisite'));
+    }
+
 
     //display
 
     public  function  display($keys){
+        $membres = Membres::where('user_id',Auth::user()->id)->where('programmes',$keys)->get();
+
+        return view('user-dash.display',compact('membres','keys'));
 
 
     }
