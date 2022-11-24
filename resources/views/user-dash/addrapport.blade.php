@@ -1,22 +1,8 @@
 @extends('_layouts._indexuser')
 @section('content')
-    <div class="row">
-        @if(Session::has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success!</strong> {{ Session::get('success') }}
+       <div style="margin-top: 2%" class="row">
+           <h3>Note administrative:</h3>
 
-            </div>
-        @endif
-            @if(Session::has('error'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {{ Session::get('error') }}
-
-                </div>
-            @endif
-			1111
-			
-			
-			
-	    </div>		
+    </div>
 			    <!-- end page content -->
 @endsection

@@ -116,6 +116,8 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('/addvisite/{programmes}',[\App\Http\Controllers\VisiteController::class,'addvisiteView'])->name("addvisite");
     //addvisite post
     Route::post('/saveVisite',[\App\Http\Controllers\VisiteController::class,'saveVisite'])->name("saveVisite");
+    //saveVisiteFromProfile
+    Route::post('/saveVisiteFromProfile',[\App\Http\Controllers\VisiteController::class,'saveVisiteFromProfile'])->name("saveVisiteFromProfile");
     // choosevisiter by programme
     Route::get('/choosevisiter/{programme}',[\App\Http\Controllers\VisiteController::class,'choosevisiter'])->name("choosevisiter");
     // editvisites
@@ -141,6 +143,53 @@ Route::group(['middleware'=>'auth'],function() {
     Route::post('/storeFaq',[\App\Http\Controllers\FaqController::class,'storefaq'])->name("storeFaq");
     //deletefaq
     Route::get('/deletefaq/{id}',[\App\Http\Controllers\FaqController::class,'deletefaq'])->name("deletefaq");
+
+    //profilo
+    Route::get('/profilo',[\App\Http\Controllers\ProfileController::class,'profile']);
+    //uploadphoto
+    Route::post('uploadphoto',[\App\Http\Controllers\ProfileController::class,'upload']);
+
+    // ce 24 novemver 2022 start rapport journalier
+
+    Route::get('/rapportjournalier',[\App\Http\Controllers\RapportjournalierController::class,'index'])->name("rapportjournalier");
+    //addrapportjournalier
+    Route::get('/addrapportjournalier',[\App\Http\Controllers\RapportjournalierController::class,'addrapportjournalierView'])->name("addrapportjournalier");
+    // post addrepportjournalier
+    Route::post('/addrepportjournalierpost',[\App\Http\Controllers\RapportjournalierController::class,'addrapportjournalierpost'])->name("addrapportjournalierpost");
+
+    // formaddrapportjournalier
+    Route::get('/formaddrapportjournalier',[\App\Http\Controllers\RapportjournalierController::class,'formaddrapportjournalier'])->name("formaddrapportjournalier");
+    // deleterapportj
+    Route::get('/deleterapportj/{id}',[\App\Http\Controllers\RapportjournalierController::class,'deleterapportj']);
+
+    //voir-data_journalier
+    Route::get('/voir-journalier/{id}',[\App\Http\Controllers\RapportjournalierController::class,'voirjournalier']);
+
+    //print-pdf-rapport-journalier
+    Route::get('/print-pdf-rapport-journalier/{id}',[\App\Http\Controllers\RapportjournalierController::class,'pdfjournalier']);
+    //edit
+    Route::get('/edit-rapport-journalier/{id}',[\App\Http\Controllers\RapportjournalierController::class,'editjournalier']);
+    // edit rapport journalier post
+    Route::post('/edit-rapport-journalier-post',[\App\Http\Controllers\RapportjournalierController::class,'editjournalierpost'])->name("editjournalierpost");
+
+    // addrapporthebdo
+    Route::get('/addrapporthebdo',[\App\Http\Controllers\HebdoController::class,'addrapporthebdoView'])->name("addrapporthebdo");
+    //formaddrapporthebdomadaire
+    Route::get('/formaddrapporthebdomadaire',[\App\Http\Controllers\HebdoController::class,'formaddrapporthebdomadaire'])->name("formaddrapporthebdomadaire");
+    //addrepporthebdomadairepost
+    Route::post('/addrepporthebdomadairepost',[\App\Http\Controllers\HebdoController::class,'addrepporthebdomadairepost'])->name("addrepporthebdomadairepost");
+    //voir-hebdomadaire 
+    Route::get('/voir-hebdomadaire/{id}',[\App\Http\Controllers\HebdoController::class,'voir_hebdomadaire']);
+    //savedatahebdo
+    Route::post('/savedatahebdo',[\App\Http\Controllers\SavedataController::class,'savedatahebdo'])->name("savedatahebdo");
+    // edit-rapport-hebdomadaire
+    Route::get('/edit-rapport-hebdomadaire/{id}',[\App\Http\Controllers\HebdoController::class,'edit_hebdomadaireview']);
+    //editrepporthebdomadairepost
+    Route::post('/editrepporthebdomadairepost',[\App\Http\Controllers\HebdoController::class,'editrepporthebdomadairepost'])->name("editrepporthebdomadairepost");
+    //print-pdf-rapport-hebdomadaire
+    Route::get('/print-pdf-rapport-hebdomadaire/{id}',[\App\Http\Controllers\HebdoController::class,'printhebdoView']);
+    // deletehebdomadaire
+    Route::get('/deletehebdomadaire/{id}',[\App\Http\Controllers\HebdoController::class,'deletehebdomadaire']);
 });
 //logout
 Route::get('/logout',[\App\Http\Controllers\LoginController::class,"logout"])->name("logout");

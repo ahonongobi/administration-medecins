@@ -17,7 +17,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="btn-group">
                                 <a href="{{url('addmembres')}}" id="addRow1" class="btn btn-info">
-                                    Ajouter un membre<i class="fa fa-plus"></i>
+                                    Ajouter un patient<i class="fa fa-plus"></i>
                                 </a>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <th> Âge </th>
                             <th> Addresse  </th>
                             <th> Téléphone </th>
-                            <th> Departement </th>
+                            <th> Wilaya </th>
                             <th> Actions </th>
                         </tr>
                         </thead>
@@ -58,14 +58,11 @@
                                 <td> {{$item->departement}} </td>
                                 <td class="valigntop">
 
-                                    <a href="{{url('voir/'.$item->id)}}" class="tblEditBtn">
+                                   <a href="{{url('voir2/'.$item->id)}}" class="tblEditBtn">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                     <a href="{{url('editmembres/'.$item->id)}}" class="tblEditBtn">
                                         <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <a onclick="return confirm('êtes-vous sur de cette action ?')" href="{{url('deletemembres/'.$item->id)}}" class="tblDelBtn">
-                                        <i class="fa fa-trash-o"></i>
                                     </a>
 
                                     <a href="/print-pdf/{{$item->id}}">

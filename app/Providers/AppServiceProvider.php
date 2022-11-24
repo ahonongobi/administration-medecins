@@ -57,9 +57,17 @@ class AppServiceProvider extends ServiceProvider
                 // get all programmes
                 $view->with('allprogrammes', \App\Models\Programmes::all());
                 //
+                // take first prgramme in
 
-                
+                //taches
+                $view->with('undotodo', \App\Models\Todo::where('user_id',Auth::user()->id)->where('completed',0)->get());
+                //event
+                $view->with('event', \App\Models\Event::where('user_id',Auth::user()->id)->where('end','<',NOW())->get());
 
+               // data_journalier
+                $view->with('data_journalier', \App\Models\Rapportjournalier::where('user_id',Auth::user()->id)->get());
+                //data_hedomadaire
+                $view->with('data_hedomadaire', \App\Models\Hebdo::where('user_id',Auth::user()->id)->get());
 
             }
 

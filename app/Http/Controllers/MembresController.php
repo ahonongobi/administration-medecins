@@ -113,7 +113,7 @@ class MembresController extends Controller
         $membre = \App\Models\Membres::find($id);
         $membre->user_id = Auth::user()->id;
         $membre->user_email = Auth::user()->email;
-        $membre->membre_id = rand(1000, 9999);
+        //$membre->membre_id = rand(1000, 9999);
         $membre->programmes = $request->input("programmes");
         $membre->nom = $request->input("name");
         $membre->email = $request->input("email");

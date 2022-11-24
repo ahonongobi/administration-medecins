@@ -28,7 +28,12 @@
         <div class="col-md-12 col-sm-12">
             <div class="card card-box">
                 <div class="card-head">
-                    <header>DETAILS DU VISITE</header>
+                   <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                                 Detail du visite
+					</header>
                     <!-- alert success message if session has success -->
 
                     <button id="panel-button1"
@@ -132,21 +137,32 @@
                             </div>
                             
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Lieu de visite: 
+                                <label class="control-label col-md-3">Type de visite: 
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
-                                      <select  value="{{old('lieu_visite')}}" class="form-control" name="lieu_visite">
+                                      <select  value="{{old('type_visite')}}" class="form-control" name="type_visite">
                                         <option value="">Selectionnez...</option>
                                         <option value="Structure">Structure</option>
                                         <option value="Téléphonique">Téléphonique </option>
                                         <option value="Domicile">Domicile</option>
                                     </select>
 
+                                    @if($errors->has('type_visite'))
+                                        <span class="text-danger">{{$errors->first('type_visite')}}</span>
+                                    @endif
+
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Lieu de visite: 
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <input name="lieu_visite" value="{{$visite->lieu_visite ?? ""}}" type="text" class="form-control" />
                                     @if($errors->has('lieu_visite'))
                                         <span class="text-danger">{{$errors->first('lieu_visite')}}</span>
                                     @endif
-
                                 </div>
                             </div>
                             <div class="form-group row">

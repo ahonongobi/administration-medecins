@@ -12,7 +12,7 @@
 <i data-feather="tag"></i>&nbsp; Envoi liste patient actualisée chaque fin du mois avant 16h.<br><br>
 <i data-feather="tag"></i>&nbsp; Envoi fiche de traçabilité externe du patient chaque fin du mois.<br><br>
 <i data-feather="tag"></i>&nbsp; Envoi fiche de consentement patient chaque fin du mois.<br><br>
-<i data-feather="tag"></i>&nbsp; Envoi état stock matériel Bayer chaque fin du mois avant 16h ( l'envoi du matériel se déroule chaque deux mois le 30 du mois en question).<br><br>
+<i data-feather="tag"></i>&nbsp; Envoi état stock matériel chaque fin du mois avant 16h ( l'envoi du matériel se déroule chaque deux mois le 30 du mois en question).<br><br>
 <i data-feather="tag"></i>&nbsp; Envoi note de frais avant chaque 05 du mois avec justificatif et cachet conforme Obligatoire.
 (aucune note de frais envoyée  le 05 du mois ou après et surtout sans justificatif ou sans cachet conforme ne sera prise en considération; elle sera automatiquement rejetée et prise en charge le
 mois prochain une fois validée).<br><br>

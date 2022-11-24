@@ -112,7 +112,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-head">
-                    <header>Faq</header>
+                     <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                                 Foire aux questions
+					</header>
                     <div class="tools">
                         <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                         <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>

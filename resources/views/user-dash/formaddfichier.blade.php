@@ -68,7 +68,12 @@
         <div class="col-md-12 col-sm-12">
             <div class="card card-box">
                 <div class="card-head">
-                    <header>DETAILS DU PATIENT</header>
+                   <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                              Téléverser un fichier
+					</header>  
                     <!-- alert success message if session has success -->
 
                     <button id="panel-button1"
@@ -94,7 +99,7 @@
 							<div class="contact-form">
 
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Nom du fichier:
+                                <label class="control-label col-md-3">Nom du fichier :
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
@@ -109,7 +114,7 @@
                             </div>
 									
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Date de naissance:
+                                <label class="control-label col-md-3">Date :
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
@@ -126,14 +131,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Fichier:
+                                <label class="control-label col-md-3">Fichier :
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-4">
                                     <div class="input-group">
 
                                         <div class="drop-zone">
-                                            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                            <span class="drop-zone__prompt">Déposez le fichier ici ou cliquez pour télécharger</span>
                                             <input type="file" name="file" class="drop-zone__input">
                                             @if($errors->has('file'))
                                                 <span class="text-danger">{{$errors->first('file')}}</span>

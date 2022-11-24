@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche technique de {{$membre->nom ??'...'}}</title>
+    <title>Fiche notification {{$membre->code ??'...'}}</title>
     <style type="text/css" media="print">
         @page{
             size: auto;
@@ -57,11 +57,20 @@
 						
                             <div class="sidebar-user">
                                 <div class="sidebar-user-pdf">
-                                    <img alt="image" src="{{asset('img/enteteall.jpg')}}">
+                                    <img alt="image" src="{{asset('img/respidom.png')}}">
                                 </div>
                             </div>
-                        
-									<br>  
+                         <div Align=Left>
+							&nbsp;&nbsp;&nbsp;&nbsp;<B>MEDECINS ET INFIRMIERS A DOMICILE</B><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;AGR N° 125/MSPRH/DGSSRH/2018 <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;Résidence orchidée, Groupe 840, N°02 Les dunes, CHERAGA. <br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Centre d'appel : (+213) 0660.63.67.67 &nbsp;&nbsp; (+213) 0550.64.64.64 <br>
+							&nbsp;&nbsp;&nbsp;&nbsp;Coordinatrice : (+213) 0561.72.59.19 &nbsp;&nbsp; <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;www.had-respidom.com   &nbsp;&nbsp;&nbsp; &nbsp;   contact@had-respidom.com<br>
+                            </div>
+							<HR ALIGN=CENTER WIDTH="100"> 
+							<P><HR NOSHADE></P>
+								
 									<div align="right">&nbsp;&nbsp;&nbsp;&nbsp;<B>DATE : </B>{{$membre->date_update ?? "RAS"}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 									
 									<div Align=Left>&nbsp;&nbsp;&nbsp;&nbsp;<B>PROGRAMME :</B> {{$membre->programmes ??"RAS"}}</div>
@@ -86,8 +95,8 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
-														<td><center>{{$membre->age}}</center></td>
+														<td><center>{{$membre->date_signature}}</center></td>
+														<td><center>{{$membre->age}} ans</center></td>
 														<td><center>{{$membre->sexe}}</center></td>
 													</tr>
 												</tbody>
@@ -100,9 +109,9 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
-														<td><center>{{$membre->age}}</center></td>
-														<td><center>{{$membre->sexe}}</center></td>
+														<td><center>{{$membre->departement}}</center></td>
+														<td><center>{{$membre->code}}</center></td>
+														<td><center>{{$membre->carte}}</center></td>
 													</tr>
 												</tbody>
 											</table>
@@ -122,9 +131,9 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
-														<td><center>{{$membre->age}}</center></td>
-														<td><center>{{$membre->sexe}}</center></td>
+														<td><center>{{$membre->statut}}</center></td>
+														<td><center>{{$membre->equipement}}</center></td>
+														<td><center>{{$membre->traitement_en_ass}}</center></td>
 													</tr>
 												</tbody>
 												<thead>
@@ -136,9 +145,9 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
-														<td><center>{{$membre->age}}</center></td>
-														<td><center>{{$membre->sexe}}</center></td>
+														<td><center>{{$membre->dose_optimale}}</center></td>
+														<td><center>{{$membre->nombre_inhalation}}</center></td>
+														<td><center>{{$membre->seance_education}}</center></td>
 													</tr>
 												</tbody>
 											</table>
@@ -158,8 +167,8 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td><center>{{$membre->date_update ?? "RAS"}}</center></td>
-														<td><center>{{$membre->age}}</center></td>
+														<td><center>{{$membre->comprehension}}</center></td>
+														<td><center>{{$membre->maitrise}}</center></td>
 														
 													</tr>
 												</tbody>
@@ -167,12 +176,12 @@
 												
 											</table>
 										</div>
-										
+										<BR><BR><BR><BR><BR><BR><BR><BR>
 											<div class="card-body ">
 										
 
 											<table class="table table-bordered">
-														<B>Historique des visites </B><br>
+														<B>Historique des visites de : [CODE PATIENT :{{$membre->code}}] </B><br>
 												<thead>
 													<tr>
 														<th><center>N°</center></th>
@@ -208,10 +217,16 @@
 								</center>
 
 
-    <div class="printthis">
-        <button onclick="window.print()" class="print-button"><span class="print-icon"></span></button>
+                            
+    <center> 
 
-    </div>
+	
+        <div class="printthis">
+	       
+                <button onclick="window.print()" class="print-button">MA-BET-DZ-0083-1</button>
+				<br>
+        </div><br><br>
+	</center>
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

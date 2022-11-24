@@ -80,11 +80,85 @@
             <!-- start header menu -->
             <div class="top-menu">
                 <ul class="nav navbar-nav pull-right">
+                    <!-- start notification dropdown -->
+						<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
+								data-close-others="true">
+								<i data-feather="bell"></i>
+								<span class="badge headerBadgeColor1"> {{$undotodo->count() ?? 0}} </span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="external">
+									<h3><span class="bold">Tâches en attentes</span></h3>
+									<span class="notification-label purple-bgcolor">{{$undotodo->count() ?? 0}}</span>
+								</li>
+								<li>
+									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
+										@foreach($undotodo as $item)
+										<li>
+											<a href="/todo">
+												<span class="time">{{$item->created_at->format('d/m/Y')}}</span>
+												<span class="details d-flex">
+													<span class="notification-icon circle yellow"><i
+															class="fa fa-warning"></i></span> {{$item->title}} </span>
+											</a>
+										</li>
+                                        @endforeach
+										
+									</ul>
+									<div class="dropdown-menu-footer">
+										<a href="/todo"> Voir toutes les tâches</a>
+									</div>
+								</li>
+							</ul>
+						</li>
                     <!-- start manage user dropdown -->
+                    <!-- start message dropdown -->
+						<li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
+								data-close-others="true">
+								<i data-feather="calendar"></i>
+								<span class="badge headerBadgeColor2"> {{$event->count() ?? 0}} </span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="external">
+									<h3><span class="bold">En attente</span></h3>
+									<span class="notification-label cyan-bgcolor">{{$event->count() ?? 0}}</span>
+								</li>
+								<li>
+									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
+                                        @foreach($event as $item)
+										<li>
+											<a href="/calendrier">
+												<span class="photo">
+													<img src="img/doc/doc2.jpg" class="img-circle" alt="">
+												</span>
+												<span class="subject">
+													<span class="from"> {{ substr($item->title,0,20) }}... </span>
+													<span class="time">{{$item->end}}</span>
+												</span>
+												<span class="message"> {{$item->title}} </span>
+											</a>
+										</li>
+                                        @endforeach
+										
+										
+									</ul>
+									<div class="dropdown-menu-footer">
+										<a href="/calendrier">Voir calandrier </a>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<!-- end message dropdown -->
                     <li class="dropdown dropdown-user">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
                            data-close-others="true">
+                            @if(Auth::user()->photo=='default.png')
                             <img alt="" class="img-circle " src="{{asset('img/dp.jpg')}}" />
+                            @else
+                           <img alt="image" class="img-circle" src="{{asset('uploads/'.Auth::user()->photo)}}">
+                           @endif
                             <span class="username username-hide-on-mobile"> {{Auth::user()->name ?? "admin"}}
 						
                         </a>
@@ -92,22 +166,10 @@
                             <li>
                                 <a href="{{url('profilo')}}"><i class="icon-user"></i> Profile </a>
                             </li>
-                            <li>
-                                <a href="{{url('settings')}}">
-                                    <i class="icon-settings"></i> Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{url('faq')}}">
-                                    <i class="icon-directions"></i> FAQ
-                                </a>
-                            </li>
+                            
+                            
                             <li class="divider"> </li>
-                            <li>
-                                <a href="{{url('lock')}}">
-                                    <i class="icon-lock"></i> Lock
-                                </a>
-                            </li>
+                           
                             <li>
                                 <a href="{{url('logout')}}">
                                     <i class="icon-logout"></i> Déconnexion </a>
@@ -221,7 +283,13 @@
                         <li class="sidebar-user-panel">
                             <div class="sidebar-user">
                                 <div class="sidebar-user-picture">
+                                    
+                                    @if(Auth::user()->photo=='default.png')
                                     <img alt="image" src="{{asset('img/dp.jpg')}}">
+                                    @else
+                                    <img alt="image" src="{{asset('uploads/'.Auth::user()->photo)}}">
+                                    @endif
+                                    
                                 </div>
                                 <div class="sidebar-user-details">
                                     <div class="user-name">{{Auth::user()->name ?? "admin"}}</div>
@@ -260,31 +328,66 @@
                                   <a href="{{URL('visites')}}" class="nav-link nav-toggle">
                                 <span class="title">Ajouter une visite</span></a>
                                 </li>
+								<li class="nav-item  ">
+                                  <a href="#" class="nav-link nav-toggle">
+                                <span class="title">Sys</span></a>
+                                </li>
                             </ul>
                         </li>
 						
 						<li class="nav-item">
                             <a href="#" class="nav-link nav-toggle">
                                 <i data-feather="file"></i>
-                                <span class="title">Rapport</span>
+                                <span class="title">Rapport journalier</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-							    <li class="nav-item  ">
-                            <a href="{{url('rapportq')}}" class="nav-link nav-toggle">
-                                <span class="title">Rapport quotidien</span>
-                                <span class="selected"></span></a>
+							 <li class="nav-item  ">
+                                  <a href="{{URL('addrapportjournalier')}}" class="nav-link nav-toggle">
+                                <span class="title">Ajouter un rapport</span></a> 
                                 </li>
-								
-                                <li class="nav-item  ">
-                                  <a href="{{url('rapporth')}}" class="nav-link nav-toggle">
-                                <span class="title">Rapport hebdomadaire</span></a>
+								 <li class="nav-item  ">
+                                  <a href="{{URL('addrapportjournalier')}}" class="nav-link nav-toggle">
+                                <span class="title">Sys</span></a> 
                                 </li>
                             </ul>
                         </li>
-						
 						<li class="nav-item">
-                            <a href="#" class="nav-link nav-toggle"> <i data-feather="alert-triangle"></i>
+                            <a href="#" class="nav-link nav-toggle">
+                                <i data-feather="file"></i>
+                                <span class="title">Rapport hebdomadaire</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+							 <li class="nav-item  ">
+                                  <a href="{{URL('addrapporthebdo')}}" class="nav-link nav-toggle">
+                                <span class="title">Ajouter un rapport</span></a> 
+                                </li>
+								 <li class="nav-item  ">
+                                  <a href="{{URL('addrapporthebdo')}}" class="nav-link nav-toggle">
+                                <span class="title">Sys</span></a> 
+                                </li>
+                            </ul>
+                        </li>
+						<li class="nav-item">
+                            <a href="#" class="nav-link nav-toggle">
+                                <i data-feather="file"></i>
+                                <span class="title">Plan de tournée</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+							 <li class="nav-item  ">
+                                  <a href="#" class="nav-link nav-toggle">
+                                <span class="title">Ajouter plan de tournée</span></a> 
+                                </li>
+                                <li class="nav-item  ">
+                                  <a href="#" class="nav-link nav-toggle">
+                                <span class="title">Sys</span></a> 
+                                </li>
+                            </ul>
+                        </li>
+						<li class="nav-item">
+                            <a href="https://safetrack.bayer.com/users/sign_in" target="blank" class="nav-link nav-toggle"> <i data-feather="alert-triangle"></i>
                                 <span class="title">Effet indisirable</span></span>
                             </a>
                         </li>
@@ -297,7 +400,7 @@
                         </li>
 						
 						<li class="nav-item">
-                            <a href="{{url('pagea2')}}" class="nav-link nav-toggle"> <i data-feather="box"></i>
+                            <a href="#" class="nav-link nav-toggle"> <i data-feather="box"></i>
                                 <span class="title">Matériaux</span></span>
                             </a>
                         </li>
@@ -329,25 +432,21 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{URL('/changepassword')}}" class="nav-link nav-toggle"> <i data-feather="key"></i>
-                                <span class="title">Mot de passe</span></span>
-                            </a>
-
-                        </li>
+                        
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link nav-toggle"> <i data-feather="mail"></i>
+                            <a href="https://had-respidom.com/webmail" target="blank" class="nav-link nav-toggle"> <i data-feather="mail"></i>
                                 <span class="title">Webmail</span> 
                             </a>
                         </li>
-						<li class="nav-item  ">
-                            <a href="{{url('faq')}}" class="nav-link nav-toggle"> <i data-feather="help-circle"></i>
-                                <span class="title">FAQ</span> 
-                            </a>
-                        </li>
+						
                         <li class="nav-item  ">
                             <a href="{{url('logout')}}" class="nav-link nav-toggle"> <i data-feather="log-out"></i>
                                 <span class="title">Déconnexion</span> 
+                            </a>
+                        </li>
+						 <li class="nav-item  ">
+                            <a href="#" class="nav-link nav-toggle"> <i data-feather="activity"></i>
+                                <span class="title">system log</span> 
                             </a>
                         </li>
                        
@@ -382,7 +481,7 @@
                 </div>
                 <!-- start widget -->
                 <div class="row">
-            <a href="{{url('chooseprogrames/1')}}" class="col-xl-4 col-md-6 col-12">
+            <a href="{{url('chooseprogrames/BetaNurse')}}" class="col-xl-4 col-md-6 col-12">
                 <div class="info-box bg-orange">
                     <span class="info-box-icon push-bottom"><img alt="image" src="{{asset('img/brain.png')}}"></span>
 					
@@ -399,7 +498,7 @@
             </a>
 
         <!-- /.col -->
-        <a href="{{url('chooseprogrames/2')}}" class="col-xl-4 col-md-6 col-12">
+        <a href="{{url('chooseprogrames/VentaPlus')}}" class="col-xl-4 col-md-6 col-12">
             <div class="info-box bg-purple">
 						<span class="info-box-icon push-bottom"><img alt="image" src="{{asset('img/poumon.png')}}"></span>
                 <div class="info-box-content">
@@ -412,7 +511,7 @@
             <!-- /.info-box -->
         </a>
         <!-- /.col -->
-        <a href="{{url('chooseprogrames/3')}}" class="col-xl-4 col-md-6 col-12">
+        <a href="{{url('chooseprogrames/OncoPlus')}}" class="col-xl-4 col-md-6 col-12">
             <div class="info-box bg-success">
 								<span class="info-box-icon push-bottom"><img alt="image" src="{{asset('img/can.png')}}"></span>
                 <div class="info-box-content">
@@ -695,36 +794,24 @@
         <!-- Summernote -->
         <script src="{{asset('assets/bundles/summernote/summernote.js')}}"></script>
         <script src="{{asset('assets/data/summernote-data.js')}}"></script>
-
        <script>
             (function() {
-
                 const idleDurationSecs = 120;    // X number of seconds
                 const redirectUrl = '/logout';  // Redirect idle users to this URL
                 let idleTimeout; // variable to hold the timeout, do not modify
-
                 const resetIdleTimeout = function() {
-
                     // Clears the existing timeout
                     if(idleTimeout) clearTimeout(idleTimeout);
-
                     // Set a new idle timeout to load the redirectUrl after idleDurationSecs
                     idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
                 };
-
                 // Init on page load
                 resetIdleTimeout();
-
                 // Reset the idle timeout on any of the events listed below
                 ['click', 'touchstart', 'mousemove'].forEach(evt =>
                     document.addEventListener(evt, resetIdleTimeout, false)
                 );
-
             })();
         </script>
-
-
 </body>
-
-
 </html>

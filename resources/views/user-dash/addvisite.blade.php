@@ -5,7 +5,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-head">
-                    <header>Liste des visites</header>
+                     <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                                 Liste des visites
+					</header>
                     <div class="tools">
                         <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                         <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
@@ -21,7 +26,7 @@
                                 </a>
                             </div><br><br>
                             <div class="btn-group">
-                                <a href="{{url('choosevisiter/BetaNurs')}}" id="addRow1" class="btn btn-info">
+                                <a href="{{url('choosevisiter/BetaNurse')}}" id="addRow1" class="btn btn-info">
                                     BetaNurs<i class="fa fa-minus"></i>
                                 </a>
                             </div>
@@ -65,10 +70,8 @@
                                     {{$item->id}}
                                 </td>
                                 <td> {{$item->nom }} {{$item->prenom }} </td>
+                                <td> {{$item->type_visite }} </td>
                                 <td> {{$item->lieu_visite }} </td>
-                                <td>
-                                    <span class=""> {{$item->lieu_visite }} </span>
-                                </td>
                                 <td> {{$item->date_visite}} </td>
                                 <td> {{$item->dose}} </td>
                                

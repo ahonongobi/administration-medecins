@@ -13,7 +13,7 @@
         <div class="col-md-12 col-sm-12">
             <div class="card card-box">
                 <div class="card-head">
-                    <header>DETAILS DU PATIENT</header>
+                    <header>DETAILS DU CONTACT</header>
 
                     <!-- alert success message if session has success -->
 
@@ -40,6 +40,16 @@
                     <form action="{{url('/user/contacts')}}"  method="POST" id="form_sample_1" class="form-horizontal">
                            @csrf
                         <div class="form-body">
+						   <div class="form-group row">
+                                <label class="control-label col-md-3">Statut:<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="statut" id="statut" value="{{old('statut')}}" type="text" class="form-control" />
+                                    @if($errors->has('statut'))
+                                        <span class="text-danger">{{$errors->first('statut')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Nom et prénom:
                                     <span class="required"> * </span>
@@ -51,10 +61,7 @@
                                         <span class="text-danger">{{$errors->first('name')}}</span>
                                     @endif
                                 </div>
-
-
                             </div>
-
 
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Établissement:
@@ -67,25 +74,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3">Statut:<span class="required"> * </span></label>
-                                <div class="col-md-4">
-                                    <input name="statut" id="statut" value="{{old('statut')}}" type="text" class="form-control" />
-                                    @if($errors->has('statut'))
-                                        <span class="text-danger">{{$errors->first('statut')}}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3">Email:<span class="required"> * </span></label>
-                                <div class="col-md-4">
-                                    <input name="email" id="email"  value="{{old('email')}}" type="email" class="form-control" />
-                                    @if($errors->has('email'))
-                                        <span class="text-danger">{{$errors->first('email')}}</span>
-                                    @endif
-                                </div>
-                            </div>
-
+                         
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Téléphone :<span class="required"> * </span></label>
                                 <div class="col-md-4">
@@ -96,7 +85,15 @@
                                 </div>
                             </div>
 
-
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Email:<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="email" id="email"  value="{{old('email')}}" type="email" class="form-control" />
+                                    @if($errors->has('email'))
+                                        <span class="text-danger">{{$errors->first('email')}}</span>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

@@ -20,7 +20,7 @@ class VisiteController extends Controller
 
          }
          elseif($programmes=="BetaNurse"){
-            $membersinfo = \App\Models\Membres::where('user_id',Auth::user()->id)->where('programmes','BetaNurs')->get();
+            $membersinfo = \App\Models\Membres::where('user_id',Auth::user()->id)->where('programmes','BetaNurse')->get();
 
          } elseif($programmes=="VentaPlus"){
             $membersinfo = \App\Models\Membres::where('user_id',Auth::user()->id)->where('programmes','VentaPlus')->get();
@@ -60,13 +60,41 @@ class VisiteController extends Controller
         return back()->with('success','Visite ajoutée avec succès');
     }
 
+    public function saveVisiteFromProfile(Request $request)
+    {
+        $request->validate([
+            
+            //'nom_prenom' => 'required',
+            'date_visite' => 'required',
+            'lieu_visite' => 'required',
+            'dose' => 'required',
+            'type_visite' => 'required',
+        ]);
+
+        $visite = new \App\Models\Visite;
+        $visite->id_user = Auth::user()->id;
+        $visite->programmes = $request->programmes ?? "##";
+        $visite->nom = $request->nom_prenom ??'##';
+        $visite->prenom = $request->nom_prenom ??'##';
+        $visite->type_visite = $request->lieu_visite;
+        $visite->date_visite = $request->date_visite;
+        $visite->lieu_visite = $request->lieu_visite;
+        $visite->dose = $request->dose;
+
+        // select from memebers table where email = $request->mail
+        $membre = \App\Models\Membres::where('email',$request->email)->first();
+        $visite->membre_id = $membre->membre_id;
+        $visite->save();
+        return back()->with('success','Visite ajoutée avec succès');
+    }
+
     // public function choosevisiter by program
-    public function choosevisiter ($programme)
+    public function choosevisiter($programme)
     {
     $data_visite = \App\Models\Visite::where('id_user', Auth::user()->id)->where('programmes', $programme)->get();
-
+    
     // if programme = BetaNurs return view addvisitorbeta elseif programme = VentaPlus return view addvisitorVenta else if programme = OncoPlus return view addvisitoronco
-    if ($programme == 'BetaNurs') {
+    if ($programme == 'BetaNurse') {
         return view('user-dash.addvisitorbeta', compact('data_visite'));
     } elseif ($programme == 'VentaPlus') {
         return view('user-dash.addvisitorventa', compact('data_visite'));

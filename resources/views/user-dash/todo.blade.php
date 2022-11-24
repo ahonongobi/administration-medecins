@@ -16,8 +16,13 @@
             <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card card-box">
                     <div class="card-head">
-                        <header>Ajouter une tâches</header>
-
+                
+<header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                              Ajouter une tâches
+					</header>  
 
                     </div>
                     <div class="card-body ">

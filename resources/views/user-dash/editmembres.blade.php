@@ -50,8 +50,15 @@
                                         <span class="text-danger">{{$errors->first('programmes')}}</span>
                                     @endif
                                 </div>
-
-
+                            </div>
+							<div class="form-group row">
+                                <label class="control-label col-md-3">Region :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="region"  value="{{$membre->region}}" type="text" class="form-control" />
+                                    @if($errors->has('region'))
+                                        <span class="text-danger">{{$errors->first('region')}}</span>
+                                    @endif
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Nom et prénom:
@@ -62,15 +69,6 @@
                                            class="form-control" />
                                     @if($errors->has('name'))
                                         <span class="text-danger">{{$errors->first('name')}}</span>
-                                    @endif
-                                </div>
-                            </div>
-							 <div class="form-group row">
-                                <label class="control-label col-md-3">Nom de l'accompagnant :<span class="required"> * </span></label>
-                                <div class="col-md-4">
-                                    <input name="nom_accompagnant"  value="{{$membre->nom_accompagnant}}" type="text" class="form-control" />
-                                    @if($errors->has('tel2'))
-                                        <span class="text-danger">{{$errors->first('tel2')}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -113,6 +111,33 @@
                                     @endif
                                 </div>
                             </div>
+							<div class="form-group row">
+                                <label class="control-label col-md-3">Date de signature :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="date_signature"  value="{{$membre->date_signature}}" type="text" class="form-control" />
+                                    @if($errors->has('date_signature'))
+                                        <span class="text-danger">{{$errors->first('date_signature')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <label class="control-label col-md-3">Code patient :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="code"  value="{{$membre->code}}" type="text" class="form-control" />
+                                    @if($errors->has('code'))
+                                        <span class="text-danger">{{$errors->first('code')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <label class="control-label col-md-3">Statut :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="statut"  value="{{$membre->statut}}" type="text" class="form-control" />
+                                    @if($errors->has('statut'))
+                                        <span class="text-danger">{{$errors->first('statut')}}</span>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="control-label col-md-3">Adresse:
                                     <span class="required"> * </span>
@@ -130,6 +155,15 @@
                                     <input name="departement" value="{{$membre->departement}}" type="text" class="form-control" />
                                     @if($errors->has('departement'))
                                         <span class="text-danger">{{$errors->first('departement')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Nom de l'accompagnant :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="accompagnant"  value="{{$membre->accompagnant}}" type="text" class="form-control" />
+                                    @if($errors->has('tel2'))
+                                        <span class="text-danger">{{$errors->first('tel2')}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -162,7 +196,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Carte assurance : oui - non:<span class="required"> * </span></label>
+                                <label class="control-label col-md-3">Carte chifa:<span class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <input name="carte"  value="{{$membre->carte}}" type="text" class="form-control" />
                                     @if($errors->has('carte'))
@@ -172,7 +206,7 @@
                                 <hr />
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Etablissement :<span class="required"> * </span></label>
+                                <label class="control-label col-md-3">Structure :<span class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <input name="etablissement"  value="{{$membre->etablissement}}" type="text" class="form-control" />
                                     @if($errors->has('etablissement'))
@@ -190,7 +224,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Nom du responsible :<span class="required"> * </span></label>
+                                <label class="control-label col-md-3">Medecin :<span class="required"> * </span></label>
                                 <div class="col-md-4">
                                     <input name="nom_responsable"  value="{{$membre->nom_responsable}}" type="text" class="form-control" />
                                     @if($errors->has('tel2'))
@@ -199,29 +233,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-3">Valable : oui - non<span class="required"> * </span></label>
+                                <label class="control-label col-md-3">Tél Medecin :<span class="required"> * </span></label>
                                 <div class="col-md-4">
-                                    <input name="valable"  value="{{$membre->valable}}" type="text" class="form-control" />
-                                    @if($errors->has('valable'))
-                                        <span class="text-danger">{{$errors->first('valable')}}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3">Arret : oui - non:<span class="required"> * </span></label>
-                                <div class="col-md-4">
-                                    <input name="arret"  value="{{$membre->arret}}" type="text" class="form-control" />
-                                    @if($errors->has('arret'))
-                                        <span class="text-danger">{{$errors->first('arret')}}</span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label col-md-3">Disponibilité oui- non:<span class="required"> * </span></label>
-                                <div class="col-md-4">
-                                    <input name="disponible"  value="{{$membre->disponible}}" type="text" class="form-control" />
-                                    @if($errors->has('disponible'))
-                                        <span class="text-danger">{{$errors->first('disponible')}}</span>
+                                    <input name="tele_medecin"  value="{{$membre->tele_medecin}}" type="text" class="form-control" />
+                                    @if($errors->has('tel2'))
+                                        <span class="text-danger">{{$errors->first('tel2')}}</span>
                                     @endif
                                 </div>
                             </div>
@@ -231,6 +247,60 @@
                                     <input name="equipement"  value="{{$membre->equipement}}" type="text" class="form-control" />
                                     @if($errors->has('equipement'))
                                         <span class="text-danger">{{$errors->first('equipement')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Traitement en association:<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="traitement_en_ass"  value="{{$membre->traitement_en_ass}}" type="text" class="form-control" />
+                                    @if($errors->has('traitement_en_ass'))
+                                        <span class="text-danger">{{$errors->first('traitement_en_ass')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Dose optimale :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="dose_optimale"  value="{{$membre->dose_optimale}}" type="text" class="form-control" />
+                                    @if($errors->has('dose_optimale'))
+                                        <span class="text-danger">{{$errors->first('dose_optimale')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Nombre d'inhalation :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="nombre_inhalation"  value="{{$membre->nombre_inhalation}}" type="text" class="form-control" />
+                                    @if($errors->has('nombre_inhalation'))
+                                        <span class="text-danger">{{$errors->first('nombre_inhalation')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Séance d'éducation :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="seance_education"  value="{{$membre->seance_education}}" type="text" class="form-control" />
+                                    @if($errors->has('seance_education'))
+                                        <span class="text-danger">{{$errors->first('seance_education')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							 <div class="form-group row">
+                                <label class="control-label col-md-3">Compréhension du programme :<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="comprehension"  value="{{$membre->comprehension}}" type="text" class="form-control" />
+                                    @if($errors->has('comprehension'))
+                                        <span class="text-danger">{{$errors->first('comprehension')}}</span>
+                                    @endif
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <label class="control-label col-md-3">Maitrise du programme:<span class="required"> * </span></label>
+                                <div class="col-md-4">
+                                    <input name="maitrise"  value="{{$membre->maitrise}}" type="text" class="form-control" />
+                                    @if($errors->has('maitrise'))
+                                        <span class="text-danger">{{$errors->first('maitrise')}}</span>
                                     @endif
                                 </div>
                             </div>

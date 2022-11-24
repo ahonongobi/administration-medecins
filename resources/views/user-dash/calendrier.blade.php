@@ -23,7 +23,12 @@
         <div class="col-md-9 col-sm-12">
             <div class="card">
                 <div class="card-head">
-                    <header>Calendrier</header>
+                    <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                               Mon Calendrier
+					</header>
                 </div>
                 <div class="card-body">
                     <div class="panel-body">

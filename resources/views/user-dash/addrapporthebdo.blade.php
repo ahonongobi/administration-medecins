@@ -1,0 +1,108 @@
+@extends('_layouts._indexuser')
+@section('content')
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-head">
+                     <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                                 Rapport hebdomadaire
+					</header>
+                    <div class="tools">
+                        <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                        <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                        <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <div class="btn-group">
+                                <a href="{{url('formaddrapporthebdomadaire')}}" id="addRow1" class="btn btn-info">
+                                    Ajouter un rapport hebdomadaire<i class="fa fa-plus"></i>
+                                </a>
+                            </div><br><br>
+                            
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+                    </div>
+                    <table
+                        class="table table-striped table-bordered table-hover table-checkable order-column"
+                        style="width: 100%" id="example4">
+                        <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>DATE  </th>
+                            <th>CODE DU RAPPORT  </th>
+                            <th>SEMAINE  </th>
+                            
+                            <th> Actions </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($data_hedomadaire as $item)
+                            <tr class="odd gradeX">
+                                <td>
+                                    {{--  from 1 2 3 .... --}}
+                                    @if($loop->index < 9)
+                                    00{{$loop->iteration}}
+                                    @elseif($loop->index < 9 && $loop->index < 99)
+                                    0{{$loop->iteration}}
+                                    @else
+                                    {{$loop->iteration}}
+                                    @endif
+                                    
+                                </td>
+                        
+                                <td> 
+                                     {{date('d/m/Y', strtotime($item->creted_at))}}
+                                    
+                                </td>
+                                <td> 
+                                    {{$item->code_rapport ?? '#'}}
+                                   
+                               </td>
+                               <td> 
+                                {{$item->semaine ?? "#"}}
+                               
+                           </td>
+                               
+                                <td class="valigntop">
+
+                                    <a href="{{url('voir-hebdomadaire/'.$item->id)}}" class="tblEditBtn">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <a href="{{url('edit-rapport-hebdomadaire/'.$item->id)}}" class="tblEditBtn">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a onclick="return confirm('êtes-vous sur de cette action ?')" href="{{url('deletehebdomadaire/'.$item->id)}}" class="tblDelBtn">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+
+                                    <a href="/print-pdf-rapport-hebdomadaire/{{$item->id}}"target="_blank">
+                                        <i class="fa fa-file-text-o"></i> </a>
+
+                                    <!-- make edit, delete, and print pdf icon  in flex  -->
+
+
+                                </td>
+                            </tr>
+                        @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end page content -->
+@endsection

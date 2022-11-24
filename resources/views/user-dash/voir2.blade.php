@@ -80,7 +80,7 @@
 																	<thead>
 																		<tr>
 																			<th>Nom d'éducateur</th>
-																			<th>Programme</th>
+																			<th>ProgrammeS</th>
 																			<th>Structure</th>
 																			<th>Service</th>
 																		</tr>
@@ -88,16 +88,7 @@
 																	<tbody>
 																		<tr>
 																			<td>{{Auth::user()->name ?? "admin"}}</td>
-																			<td>
-																				@if($membre->programmes == 1)
-																				BetaNurse
-																				@elseif($membre->programmes == 2)
-
-																				VentaPlus
-																					@elseif($membre->programmes == 3)
-																					Oncoplus
-																				@endif
-																			</td>
+																			<td>{$membre->programmes ??"RAS"}}</td>
 																			<td>{{$membre->etablissement ?? "..."}}</td>
 																			<td>{{$membre->service ?? "..."}}</td>
 																		</tr>

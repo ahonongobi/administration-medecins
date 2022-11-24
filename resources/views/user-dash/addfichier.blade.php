@@ -5,7 +5,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-head">
-                    <header>Téléchargement</header>
+                    <header>
+							     <i class="fa fa-undo" aria-hidden="true"></i>
+								 <a href="javascript:history.back()">Page précédente</a>
+								 <i class="fa fa-angle-right"></i>
+                                Téléchargement
+					</header>
                     <div class="tools">
                         <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                         <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
@@ -17,7 +22,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-6">
                             <div class="btn-group">
                                 <a href="{{url('addfile')}}" id="addRow1" class="btn btn-info">
-                                    Ajouter une fichier<i class="fa fa-plus"></i>
+                                    Ajouter un fichier<i class="fa fa-plus"></i>
                                 </a>
                             </div><br><br>
                             
@@ -53,7 +58,7 @@
                                 <td> {{$item->date_fichier }} </td>
                                 
                                 <td> 
-                                    <a href="{{url('storage/uploads/'.$item->fichier)}}" download class="">
+                                    <a href="{{url('uploads/'.$item->fichier)}}" download class="">
                                         <i class="fa fa-paperclip"></i>
                                     </a>
                                 </td>

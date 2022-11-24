@@ -21,17 +21,17 @@
                                 </a>
                             </div><br><br>
                             <div class="btn-group">
-                                <a href="{{url('chooseprogrames/1')}}" id="addRow1" class="btn btn-info">
+                                <a href="{{url('chooseprogrames/BetaNurse')}}" id="addRow1" class="btn btn-info">
                                     BetaNurs<i class="fa fa-minus"></i>
                                 </a>
                             </div>
                             <div class="btn-group">
-                                <a href="{{url('chooseprogrames/2')}}" id="addRow1" class="btn btn-info">
+                                <a href="{{url('chooseprogrames/VentaPlus')}}" id="addRow1" class="btn btn-info">
                                     VentaPlus<i class="fa fa-minus"></i>
                                 </a>
                             </div>
                             <div class="btn-group">
-                                <a href="{{url('chooseprogrames/3')}}" id="addRow1" class="btn btn-info">
+                                <a href="{{url('chooseprogrames/OncoPlus')}}" id="addRow1" class="btn btn-info">
                                     OncoPlus<i class="fa fa-minus"></i>
                                 </a>
                             </div>
@@ -47,15 +47,15 @@
                         <thead>
                         <tr>
                             <th>
-                                ID
+                                Code
                             </th>
                             <th> Nom et Prénom </th>
-                            <th> Accompagnant </th>
+                            <th> Programme </th>
                             <th> Sexe </th>
                             <th> Âge </th>
-                            <th> Addresse  </th>
+                            <th> Wilaya  </th>
                             <th> Téléphone </th>
-                            <th> Departement </th>
+                            <th> Structure </th>
                             <th> Actions </th>
                         </tr>
                         </thead>
@@ -63,17 +63,17 @@
                         @foreach($membres as $item)
                             <tr class="odd gradeX">
                                 <td>
-                                    {{$item->membre_id }}
+                                    {{$item->code }}
                                 </td>
                                 <td> {{$item->nom }} </td>
-                                <td> {{$item->accompagnant }} </td>
+                                <td> {{$item->programmes }} </td>
                                 <td>
                                     <span class=""> {{$item->sexe }} </span>
                                 </td>
                                 <td> {{$item->age}}ans </td>
-                                <td> {{$item->addresse }} </td>
+                                <td> {{$item->departement }} </td>
                                 <td> {{$item->tel}} </td>
-                                <td> {{$item->departement}} </td>
+                                <td> {{$item->etablissement}} </td>
                                 <td class="valigntop">
 
                                     <a href="{{url('voir2/'.$item->id)}}" class="tblEditBtn">
@@ -82,10 +82,6 @@
                                     <a href="{{url('editmembres/'.$item->id)}}" class="tblEditBtn">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a onclick="return confirm('êtes-vous sur de cette action ?')" href="{{url('deletemembres/'.$item->id)}}" class="tblDelBtn">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-
                                     <a href="/print-pdf/{{$item->id}}"target="_blank">
                                         <i class="fa fa-file-text-o"></i> </a>
 
