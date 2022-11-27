@@ -92,4 +92,11 @@ class HebdoController extends Controller
         $hebdo->delete();
         return back()->with('success', 'Rapport hebdomadaire supprimé avec succès');
     }
+
+    // editdonnee
+    public function editdonnee($id)
+    {
+        $data = Savedata::find($id);
+        return view('user-dash.edit-donnee', compact('data'));
+    }
 }

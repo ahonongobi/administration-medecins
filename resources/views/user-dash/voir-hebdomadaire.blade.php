@@ -334,6 +334,18 @@
                                                                             <td>{{$data->equipement ?? "..."}}</td>
                                                                             <td>{{$data->effet ?? "..."}}</td>
                                                                             <td>{{$data->notification ?? "..."}}</td>
+																			<td>
+																				<a href="/editdonnee/{{$data->id}}" 
+																					class="btn btnsss-primary btn-xs">
+																					<i class="fa fa-pencil"></i>
+																				</a>
+																				
+																				<a href="/deletedonnee/{{$data->id}}" 
+																					class="btn btn-danger btn-xs">
+																					<i class="fa fa-trash-o"></i>
+																				</a>
+																				
+																			</td>
 																		</tr>
 																		@endforeach
 																		

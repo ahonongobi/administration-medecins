@@ -377,11 +377,11 @@
                             </a>
                             <ul class="sub-menu">
 							 <li class="nav-item  ">
-                                  <a href="#" class="nav-link nav-toggle">
+                                  <a href="{{URL('addtournee')}}" class="nav-link nav-toggle">
                                 <span class="title">Ajouter plan de tournée</span></a> 
                                 </li>
                                 <li class="nav-item  ">
-                                  <a href="#" class="nav-link nav-toggle">
+                                  <a href="{{URL('print-pdf-tourne')}}" class="nav-link nav-toggle">
                                 <span class="title">Sys</span></a> 
                                 </li>
                             </ul>

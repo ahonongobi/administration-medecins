@@ -61,127 +61,110 @@
             <div class="card">
 
 
+                <div Align=Left>
 
-                <HR ALIGN=CENTER WIDTH="100">
+                </div>
+
                 <P>
                     <HR NOSHADE>
                 </P>
-
-                <div align="right">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <table style="width: 40%" class="table table-striped table-hover">
-                        <tr>
-                            <td><B>Code rapport :</B></td>
-                            <td>
-                                {{$data->code_rapport ?? 'RAS'}}
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><B>NOM PATIENT :</B></td>
-                            <td>
-                                {{$data->psdmp_region ?? 'RAS'}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><B>SEMAINES :</B></td>
-                            <td>
-                                {{$data->semaine ?? 'RAS'}}
-                            </td>
-                        </tr>
-                        
-                    </table>
+                <div style="margin-bottom: 4% !important" class="sidebar-user">
+                    <div class="sidebar-user-pdf">
+                        <h2><b>PLAN DE TOURNEE MENSUEL</b></h2>
                     </div>
-
-                {{-- <div Align=Left>&nbsp;&nbsp;&nbsp;&nbsp;<B>PROGRAMME :</B> {{$membre->programmes ??"RAS"}}</div> --}}
-
-                <div Align=Left>
-                 {{-- make table like this: 
-                    PSDMP: PSMSP
-                    PSDMP2: PSMSP3
-                    --}}
-                    <h5>RAPPORT D'ACTIVITÉ HEBDOMADAIRE</h5>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <table style="width: 40%" class="table table-striped table-hover">
-                        <tr>
-                            <td><B>PSDMP :</B></td>
-                            <td>
-                                {{$data->programme->psdmp ?? 'RAS'}}
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><B>PSDMP REGION :</B></td>
-                            <td>
-                                {{$data->psdmp_region ?? 'RAS'}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><B>DATE DU RAPPORT :</B></td>
-                            <td>
-                                {{$data->date_rapport ?? 'RAS'}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><B>NOM EDUCATEUR :</B></td>
-                            <td>
-                               {{Auth::user()->name}}
-                            </td>
-                        </tr>
-                    </table>
-
                 </div>
+
+                <div align="right">&nbsp;&nbsp;&nbsp;&nbsp;<B>DATE :
+                    </B>{{ $membre->date_update ?? 'RAS' }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+
+
+                <div Align=Left>&nbsp;&nbsp;&nbsp;&nbsp;<B>EDUCATEUR : </B>{{ Auth::user()->name ?? 'admin' }}</div>
+                <div Align=Left>&nbsp;&nbsp;&nbsp;&nbsp;<B>MOIS :</B> {{ $data ?? 'RAS' }}</div>
 
 
                 <div class="card-head">
-                    <header><B>RAPPORT JOURNALIER</B></header>
+                    <header><B>FICHE NOTIFICATION</B></header>
                 </div>
+
+
+
+
+
+
                 <div class="card-body ">
 
 
-                    <table class="table table-striped custom-table table-hover table">
+                    <table class="table table-bordered">
+
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Date</th>
-                                <th>Code patient</th>
-                                <th>Type de visite</th>
-                                <th>Wilaya</th>
-                                <th>Structure</th>
-                                <th>Statut</th>
-                                <th>Equipement</th>
-                                <th>Effet indésirable</th>
-                                <th>Notification ?</th>
+                                <th>
+                                    <center>DATE</center>
+                                </th>
+                                <th>
+                                    <center>TYPE ACTIVITÉ</center>
+                                </th>
+                                <th>
+                                    <center>SECTEUR</center>
+                                </th>
+                                <th>
+                                    <center>SERVICE</center>
+                                </th>
+                                <th>
+                                    <center>MEDECIN</center>
+                                </th>
+
+                                <th>
+                                    <center>PROGRAMME</center>
+                                </th>
+                                <th>
+                                    <center>OBJECTIF</center>
+                                </th>
+                                <th>
+                                    <center>OBSERVATION</center>
+                                </th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($all_data as $data)
+                            @foreach ($alltournee as $item)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->date_visite ?? '...' }}</td>
-                                    <td>{{ $data->code_patient ?? '...' }}</td>
-                                    <td>{{ $data->type_visite ?? '...' }}</td>
-                                    <td>{{ $data->wilaya ?? '...' }}</td>
-                                    <td>{{ $data->structure ?? '...' }}</td>
-                                    <td>{{ $data->statut ?? '...' }}</td>
-                                    <td>{{ $data->equipement ?? '...' }}</td>
-                                    <td>{{ $data->effet ?? '...' }}</td>
-                                    <td>{{ $data->notification ?? '...' }}</td>
+                                    <td>
+                                        <center>{{ $item->date }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ $item->type_activite ?? '...' }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ $item->secteur ?? '...' }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ $item->service ?? '...' }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ $item->medecin ?? '...' }}</center>
+                                    </td>
+
+                                    <td>
+                                        <center>{{ $item->programme ?? '...' }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ $item->objectif ?? '...' }}</center>
+                                    </td>
+                                    <td>
+                                        <center>{{ $item->observation ?? '...' }}</center>
+                                    </td>
+
                                 </tr>
                             @endforeach
-
-
-
                         </tbody>
+
+
+
+
                     </table>
-
-                    
                 </div>
-
-
-
-
-
-
             </div>
 
         </div>
@@ -194,10 +177,10 @@
 
 
         <div class="printthis">
-            <span onclick="window.print()">
-                <i style="font-size: 30px" class="fa fa-print"></i>
+            <span>
+                <i style="font-size: 30px" onclick="window.print()" class="fa fa-print"></i>
             </span>
-            <button onclick="window.print()" class="print-button d-none">MA-BET-DZ-0083-1</button>
+
             <br>
         </div><br><br>
     </center>

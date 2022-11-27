@@ -190,6 +190,39 @@ Route::group(['middleware'=>'auth'],function() {
     Route::get('/print-pdf-rapport-hebdomadaire/{id}',[\App\Http\Controllers\HebdoController::class,'printhebdoView']);
     // deletehebdomadaire
     Route::get('/deletehebdomadaire/{id}',[\App\Http\Controllers\HebdoController::class,'deletehebdomadaire']);
+
+    //addtournee
+    Route::get('/addtournee',[\App\Http\Controllers\TourneeController::class,'addtourneeView'])->name("addtournee");
+
+    //formaddtournee
+    Route::get('/addplantournee',[\App\Http\Controllers\TourneeController::class,'formaddtournee'])->name("formaddtournee");
+    //addplanpost
+    Route::post('/addplanpost',[\App\Http\Controllers\TourneeController::class,'addplanpost'])->name("addplanpost");
+    //edittournee 
+    Route::get('/edittournee/{id}',[\App\Http\Controllers\TourneeController::class,'edittourneeview']);
+    //ediiplanpost
+    Route::post('/ediiplanpost',[\App\Http\Controllers\TourneeController::class,'ediiplanpost'])->name("ediiplanpost");
+    //deletetournee
+    Route::get('/deletetournee/{id}',[\App\Http\Controllers\TourneeController::class,'deletetournee']);
+    // print-pdf-tourne
+    Route::get('/print-pdf-tourne/{id}',[\App\Http\Controllers\TourneeController::class,'printtournee']);
+    //print-pdf-tourne
+    Route::get('/print-pdf-tourne',[\App\Http\Controllers\TourneeController::class,'printtourneepdf']);
+    // voir-tournee
+    Route::get('/voir-tournee/{id}',[\App\Http\Controllers\TourneeController::class,'voir_tournee']);
+    // editdonnee
+    Route::get('/editdonnee/{id}',[\App\Http\Controllers\HebdoController::class,'editdonnee']);
+
+    //editdatahebdo
+    Route::post('/editdatahebdo',[\App\Http\Controllers\SavedataController::class,'editdatahebdo'])->name("editdatahebdo");
+
+
+    //deletedonnee
+    Route::get('/deletedonnee/{id}',[\App\Http\Controllers\SavedataController::class,'deletedonnee']);
+    //addTourneonly 
+    Route::post('/addTourneonly',[\App\Http\Controllers\AddTourneeController::class,'addTourneonly'])->name("addTourneonly");
+    // deletetourneeonly
+    Route::get('/deletetourneeonly/{id}',[\App\Http\Controllers\AddTourneeController::class,'deletetourneeonly']);
 });
 //logout
 Route::get('/logout',[\App\Http\Controllers\LoginController::class,"logout"])->name("logout");

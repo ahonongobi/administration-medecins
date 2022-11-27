@@ -68,6 +68,13 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('data_journalier', \App\Models\Rapportjournalier::where('user_id',Auth::user()->id)->get());
                 //data_hedomadaire
                 $view->with('data_hedomadaire', \App\Models\Hebdo::where('user_id',Auth::user()->id)->get());
+                // $data_tournee
+                $view->with('data_tournee', \App\Models\Tournee::where('user_id',Auth::user()->id)->get());
+                // get all tournee of user
+                $view->with('alltournee', \App\Models\Tournee::where('user_id',Auth::user()->id)->get());
+                // data_tournee_only
+                $view->with('data_tournee_only', \App\Models\AddTournee::where('user_id',Auth::user()->id)->get());
+
 
             }
 
